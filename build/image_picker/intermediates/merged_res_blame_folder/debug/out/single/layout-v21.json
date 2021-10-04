@@ -1,0 +1,18 @@
+[
+    {
+        "merged": "E:\\projects\\rentswale\\build\\image_picker\\intermediates\\res\\merged\\debug\\layout-v21\\notification_action.xml",
+        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-2\\files-2.1\\dedc580d70cb626931f368f031b4e88d\\core-1.1.0\\res\\layout-v21\\notification_action.xml"
+    },
+    {
+        "merged": "E:\\projects\\rentswale\\build\\image_picker\\intermediates\\res\\merged\\debug\\layout-v21\\notification_template_icon_group.xml",
+        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-2\\files-2.1\\dedc580d70cb626931f368f031b4e88d\\core-1.1.0\\res\\layout-v21\\notification_template_icon_group.xml"
+    },
+    {
+        "merged": "E:\\projects\\rentswale\\build\\image_picker\\intermediates\\res\\merged\\debug\\layout-v21\\notification_action_tombstone.xml",
+        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-2\\files-2.1\\dedc580d70cb626931f368f031b4e88d\\core-1.1.0\\res\\layout-v21\\notification_action_tombstone.xml"
+    },
+    {
+        "merged": "E:\\projects\\rentswale\\build\\image_picker\\intermediates\\res\\merged\\debug\\layout-v21\\notification_template_custom_big.xml",
+        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-2\\files-2.1\\dedc580d70cb626931f368f031b4e88d\\core-1.1.0\\res\\layout-v21\\notification_template_custom_big.xml"
+    }
+]

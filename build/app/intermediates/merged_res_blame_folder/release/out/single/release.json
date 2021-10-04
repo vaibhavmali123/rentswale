@@ -1,0 +1,506 @@
+[
+    {
+        "merged": "E:\\projects\\rentswale\\build\\app\\intermediates\\res\\merged\\release\\mipmap-xhdpi_ic_launcher_foreground.png.flat",
+        "source": "E:\\projects\\rentswale\\android\\app\\src\\main\\res\\mipmap-xhdpi\\ic_launcher_foreground.png"
+    },
+    {
+        "merged": "E:\\projects\\rentswale\\build\\app\\intermediates\\res\\merged\\release\\drawable-mdpi-v4_notification_bg_low_normal.9.png.flat",
+        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-2\\files-2.1\\c7381266eb9872bb1fdbae4b6896d5be\\core-1.2.0-alpha04\\res\\drawable-mdpi-v4\\notification_bg_low_normal.9.png"
+    },
+    {
+        "merged": "E:\\projects\\rentswale\\build\\app\\intermediates\\res\\merged\\release\\drawable-hdpi-v4_notification_bg_normal_pressed.9.png.flat",
+        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-2\\files-2.1\\c7381266eb9872bb1fdbae4b6896d5be\\core-1.2.0-alpha04\\res\\drawable-hdpi-v4\\notification_bg_normal_pressed.9.png"
+    },
+    {
+        "merged": "E:\\projects\\rentswale\\build\\app\\intermediates\\res\\merged\\release\\xml_provider_path.xml.flat",
+        "source": "E:\\projects\\rentswale\\build\\flutter_uploader\\intermediates\\packaged_res\\release\\xml\\provider_path.xml"
+    },
+    {
+        "merged": "E:\\projects\\rentswale\\build\\app\\intermediates\\res\\merged\\release\\layout-v21_notification_template_icon_group.xml.flat",
+        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-2\\files-2.1\\c7381266eb9872bb1fdbae4b6896d5be\\core-1.2.0-alpha04\\res\\layout-v21\\notification_template_icon_group.xml"
+    },
+    {
+        "merged": "E:\\projects\\rentswale\\build\\app\\intermediates\\res\\merged\\release\\drawable_rzp_white_border_black_bg.xml.flat",
+        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-2\\files-2.1\\cd29a179b7c870c868abf36ed01b01a7\\jetified-checkout-1.6.10\\res\\drawable\\rzp_white_border_black_bg.xml"
+    },
+    {
+        "merged": "E:\\projects\\rentswale\\build\\app\\intermediates\\res\\merged\\release\\drawable-mdpi-v4_ic_upload.png.flat",
+        "source": "E:\\projects\\rentswale\\build\\flutter_uploader\\intermediates\\packaged_res\\release\\drawable-mdpi-v4\\ic_upload.png"
+    },
+    {
+        "merged": "E:\\projects\\rentswale\\build\\app\\intermediates\\res\\merged\\release\\drawable-mdpi-v4_common_google_signin_btn_text_light_normal_background.9.png.flat",
+        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-2\\files-2.1\\6d064301158aa86007fb000de44842bf\\jetified-play-services-base-17.0.0\\res\\drawable-mdpi-v4\\common_google_signin_btn_text_light_normal_background.9.png"
+    },
+    {
+        "merged": "E:\\projects\\rentswale\\build\\app\\intermediates\\res\\merged\\release\\drawable-xxhdpi-v4_common_google_signin_btn_text_light_normal_background.9.png.flat",
+        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-2\\files-2.1\\6d064301158aa86007fb000de44842bf\\jetified-play-services-base-17.0.0\\res\\drawable-xxhdpi-v4\\common_google_signin_btn_text_light_normal_background.9.png"
+    },
+    {
+        "merged": "E:\\projects\\rentswale\\build\\app\\intermediates\\res\\merged\\release\\drawable_notification_bg.xml.flat",
+        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-2\\files-2.1\\c7381266eb9872bb1fdbae4b6896d5be\\core-1.2.0-alpha04\\res\\drawable\\notification_bg.xml"
+    },
+    {
+        "merged": "E:\\projects\\rentswale\\build\\app\\intermediates\\res\\merged\\release\\drawable_rzp_secured_by_bg.xml.flat",
+        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-2\\files-2.1\\cd29a179b7c870c868abf36ed01b01a7\\jetified-checkout-1.6.10\\res\\drawable\\rzp_secured_by_bg.xml"
+    },
+    {
+        "merged": "E:\\projects\\rentswale\\build\\app\\intermediates\\res\\merged\\release\\layout_notification_template_part_time.xml.flat",
+        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-2\\files-2.1\\c7381266eb9872bb1fdbae4b6896d5be\\core-1.2.0-alpha04\\res\\layout\\notification_template_part_time.xml"
+    },
+    {
+        "merged": "E:\\projects\\rentswale\\build\\app\\intermediates\\res\\merged\\release\\drawable-hdpi-v4_common_full_open_on_phone.png.flat",
+        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-2\\files-2.1\\6d064301158aa86007fb000de44842bf\\jetified-play-services-base-17.0.0\\res\\drawable-hdpi-v4\\common_full_open_on_phone.png"
+    },
+    {
+        "merged": "E:\\projects\\rentswale\\build\\app\\intermediates\\res\\merged\\release\\drawable-mdpi-v4_rzp_logo.png.flat",
+        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-2\\files-2.1\\cd29a179b7c870c868abf36ed01b01a7\\jetified-checkout-1.6.10\\res\\drawable-mdpi-v4\\rzp_logo.png"
+    },
+    {
+        "merged": "E:\\projects\\rentswale\\build\\app\\intermediates\\res\\merged\\release\\drawable_common_google_signin_btn_text_light_focused.xml.flat",
+        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-2\\files-2.1\\6d064301158aa86007fb000de44842bf\\jetified-play-services-base-17.0.0\\res\\drawable\\common_google_signin_btn_text_light_focused.xml"
+    },
+    {
+        "merged": "E:\\projects\\rentswale\\build\\app\\intermediates\\res\\merged\\release\\mipmap-mdpi_ic_launcher_foreground.png.flat",
+        "source": "E:\\projects\\rentswale\\android\\app\\src\\main\\res\\mipmap-mdpi\\ic_launcher_foreground.png"
+    },
+    {
+        "merged": "E:\\projects\\rentswale\\build\\app\\intermediates\\res\\merged\\release\\drawable_rzp_border.xml.flat",
+        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-2\\files-2.1\\cd29a179b7c870c868abf36ed01b01a7\\jetified-checkout-1.6.10\\res\\drawable\\rzp_border.xml"
+    },
+    {
+        "merged": "E:\\projects\\rentswale\\build\\app\\intermediates\\res\\merged\\release\\mipmap-hdpi_ic_launcher_foreground.png.flat",
+        "source": "E:\\projects\\rentswale\\android\\app\\src\\main\\res\\mipmap-hdpi\\ic_launcher_foreground.png"
+    },
+    {
+        "merged": "E:\\projects\\rentswale\\build\\app\\intermediates\\res\\merged\\release\\drawable-watch-v20_common_google_signin_btn_text_light_normal.xml.flat",
+        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-2\\files-2.1\\1c8a573197fac027bc02147f387131d4\\jetified-play-services-auth-17.0.0\\res\\drawable-watch-v20\\common_google_signin_btn_text_light_normal.xml"
+    },
+    {
+        "merged": "E:\\projects\\rentswale\\build\\app\\intermediates\\res\\merged\\release\\mipmap-xhdpi_ic_launcher_round.png.flat",
+        "source": "E:\\projects\\rentswale\\android\\app\\src\\main\\res\\mipmap-xhdpi\\ic_launcher_round.png"
+    },
+    {
+        "merged": "E:\\projects\\rentswale\\build\\app\\intermediates\\res\\merged\\release\\drawable-xhdpi-v4_notification_bg_normal_pressed.9.png.flat",
+        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-2\\files-2.1\\c7381266eb9872bb1fdbae4b6896d5be\\core-1.2.0-alpha04\\res\\drawable-xhdpi-v4\\notification_bg_normal_pressed.9.png"
+    },
+    {
+        "merged": "E:\\projects\\rentswale\\build\\app\\intermediates\\res\\merged\\release\\drawable-mdpi-v4_googleg_disabled_color_18.png.flat",
+        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-2\\files-2.1\\6d064301158aa86007fb000de44842bf\\jetified-play-services-base-17.0.0\\res\\drawable-mdpi-v4\\googleg_disabled_color_18.png"
+    },
+    {
+        "merged": "E:\\projects\\rentswale\\build\\app\\intermediates\\res\\merged\\release\\drawable-hdpi-v4_common_google_signin_btn_icon_dark_normal_background.9.png.flat",
+        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-2\\files-2.1\\6d064301158aa86007fb000de44842bf\\jetified-play-services-base-17.0.0\\res\\drawable-hdpi-v4\\common_google_signin_btn_icon_dark_normal_background.9.png"
+    },
+    {
+        "merged": "E:\\projects\\rentswale\\build\\app\\intermediates\\res\\merged\\release\\drawable_common_google_signin_btn_text_light_normal.xml.flat",
+        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-2\\files-2.1\\6d064301158aa86007fb000de44842bf\\jetified-play-services-base-17.0.0\\res\\drawable\\common_google_signin_btn_text_light_normal.xml"
+    },
+    {
+        "merged": "E:\\projects\\rentswale\\build\\app\\intermediates\\res\\merged\\release\\drawable-v21_notification_action_background.xml.flat",
+        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-2\\files-2.1\\c7381266eb9872bb1fdbae4b6896d5be\\core-1.2.0-alpha04\\res\\drawable-v21\\notification_action_background.xml"
+    },
+    {
+        "merged": "E:\\projects\\rentswale\\build\\app\\intermediates\\res\\merged\\release\\drawable-mdpi-v4_notification_bg_low_pressed.9.png.flat",
+        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-2\\files-2.1\\c7381266eb9872bb1fdbae4b6896d5be\\core-1.2.0-alpha04\\res\\drawable-mdpi-v4\\notification_bg_low_pressed.9.png"
+    },
+    {
+        "merged": "E:\\projects\\rentswale\\build\\app\\intermediates\\res\\merged\\release\\layout-v21_notification_action.xml.flat",
+        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-2\\files-2.1\\c7381266eb9872bb1fdbae4b6896d5be\\core-1.2.0-alpha04\\res\\layout-v21\\notification_action.xml"
+    },
+    {
+        "merged": "E:\\projects\\rentswale\\build\\app\\intermediates\\res\\merged\\release\\drawable_common_google_signin_btn_text_dark_normal.xml.flat",
+        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-2\\files-2.1\\6d064301158aa86007fb000de44842bf\\jetified-play-services-base-17.0.0\\res\\drawable\\common_google_signin_btn_text_dark_normal.xml"
+    },
+    {
+        "merged": "E:\\projects\\rentswale\\build\\app\\intermediates\\res\\merged\\release\\layout-v16_notification_template_custom_big.xml.flat",
+        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-2\\files-2.1\\c7381266eb9872bb1fdbae4b6896d5be\\core-1.2.0-alpha04\\res\\layout-v16\\notification_template_custom_big.xml"
+    },
+    {
+        "merged": "E:\\projects\\rentswale\\build\\app\\intermediates\\res\\merged\\release\\drawable_common_google_signin_btn_icon_dark_focused.xml.flat",
+        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-2\\files-2.1\\6d064301158aa86007fb000de44842bf\\jetified-play-services-base-17.0.0\\res\\drawable\\common_google_signin_btn_icon_dark_focused.xml"
+    },
+    {
+        "merged": "E:\\projects\\rentswale\\build\\app\\intermediates\\res\\merged\\release\\drawable-xhdpi-v4_googleg_disabled_color_18.png.flat",
+        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-2\\files-2.1\\6d064301158aa86007fb000de44842bf\\jetified-play-services-base-17.0.0\\res\\drawable-xhdpi-v4\\googleg_disabled_color_18.png"
+    },
+    {
+        "merged": "E:\\projects\\rentswale\\build\\app\\intermediates\\res\\merged\\release\\drawable-xxhdpi-v4_googleg_disabled_color_18.png.flat",
+        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-2\\files-2.1\\6d064301158aa86007fb000de44842bf\\jetified-play-services-base-17.0.0\\res\\drawable-xxhdpi-v4\\googleg_disabled_color_18.png"
+    },
+    {
+        "merged": "E:\\projects\\rentswale\\build\\app\\intermediates\\res\\merged\\release\\layout_custom_dialog.xml.flat",
+        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-2\\files-2.1\\c7381266eb9872bb1fdbae4b6896d5be\\core-1.2.0-alpha04\\res\\layout\\custom_dialog.xml"
+    },
+    {
+        "merged": "E:\\projects\\rentswale\\build\\app\\intermediates\\res\\merged\\release\\mipmap-xxhdpi_ic_launcher_round.png.flat",
+        "source": "E:\\projects\\rentswale\\android\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_launcher_round.png"
+    },
+    {
+        "merged": "E:\\projects\\rentswale\\build\\app\\intermediates\\res\\merged\\release\\mipmap-xxhdpi_ic_launcher_foreground.png.flat",
+        "source": "E:\\projects\\rentswale\\android\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_launcher_foreground.png"
+    },
+    {
+        "merged": "E:\\projects\\rentswale\\build\\app\\intermediates\\res\\merged\\release\\drawable_toast_bg.xml.flat",
+        "source": "E:\\projects\\rentswale\\build\\fluttertoast\\intermediates\\packaged_res\\release\\drawable\\toast_bg.xml"
+    },
+    {
+        "merged": "E:\\projects\\rentswale\\build\\app\\intermediates\\res\\merged\\release\\color_wallet_secondary_text_holo_dark.xml.flat",
+        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-2\\files-2.1\\25dfccc5b87c03fa5e31c289979c70ef\\jetified-play-services-wallet-18.1.2\\res\\color\\wallet_secondary_text_holo_dark.xml"
+    },
+    {
+        "merged": "E:\\projects\\rentswale\\build\\app\\intermediates\\res\\merged\\release\\drawable-xhdpi-v4_notify_panel_notification_icon_bg.png.flat",
+        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-2\\files-2.1\\c7381266eb9872bb1fdbae4b6896d5be\\core-1.2.0-alpha04\\res\\drawable-xhdpi-v4\\notify_panel_notification_icon_bg.png"
+    },
+    {
+        "merged": "E:\\projects\\rentswale\\build\\app\\intermediates\\res\\merged\\release\\drawable-mdpi-v4_notification_bg_normal_pressed.9.png.flat",
+        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-2\\files-2.1\\c7381266eb9872bb1fdbae4b6896d5be\\core-1.2.0-alpha04\\res\\drawable-mdpi-v4\\notification_bg_normal_pressed.9.png"
+    },
+    {
+        "merged": "E:\\projects\\rentswale\\build\\app\\intermediates\\res\\merged\\release\\color_common_google_signin_btn_text_light.xml.flat",
+        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-2\\files-2.1\\6d064301158aa86007fb000de44842bf\\jetified-play-services-base-17.0.0\\res\\color\\common_google_signin_btn_text_light.xml"
+    },
+    {
+        "merged": "E:\\projects\\rentswale\\build\\app\\intermediates\\res\\merged\\release\\mipmap-hdpi_ic_launcher_round.png.flat",
+        "source": "E:\\projects\\rentswale\\android\\app\\src\\main\\res\\mipmap-hdpi\\ic_launcher_round.png"
+    },
+    {
+        "merged": "E:\\projects\\rentswale\\build\\app\\intermediates\\res\\merged\\release\\drawable-hdpi-v4_notify_panel_notification_icon_bg.png.flat",
+        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-2\\files-2.1\\c7381266eb9872bb1fdbae4b6896d5be\\core-1.2.0-alpha04\\res\\drawable-hdpi-v4\\notify_panel_notification_icon_bg.png"
+    },
+    {
+        "merged": "E:\\projects\\rentswale\\build\\app\\intermediates\\res\\merged\\release\\drawable_notification_tile_bg.xml.flat",
+        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-2\\files-2.1\\c7381266eb9872bb1fdbae4b6896d5be\\core-1.2.0-alpha04\\res\\drawable\\notification_tile_bg.xml"
+    },
+    {
+        "merged": "E:\\projects\\rentswale\\build\\app\\intermediates\\res\\merged\\release\\drawable-mdpi-v4_notification_bg_normal.9.png.flat",
+        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-2\\files-2.1\\c7381266eb9872bb1fdbae4b6896d5be\\core-1.2.0-alpha04\\res\\drawable-mdpi-v4\\notification_bg_normal.9.png"
+    },
+    {
+        "merged": "E:\\projects\\rentswale\\build\\app\\intermediates\\res\\merged\\release\\drawable-hdpi-v4_common_google_signin_btn_text_light_normal_background.9.png.flat",
+        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-2\\files-2.1\\6d064301158aa86007fb000de44842bf\\jetified-play-services-base-17.0.0\\res\\drawable-hdpi-v4\\common_google_signin_btn_text_light_normal_background.9.png"
+    },
+    {
+        "merged": "E:\\projects\\rentswale\\build\\app\\intermediates\\res\\merged\\release\\mipmap-xhdpi_ic_launcher.png.flat",
+        "source": "E:\\projects\\rentswale\\android\\app\\src\\main\\res\\mipmap-xhdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "E:\\projects\\rentswale\\build\\app\\intermediates\\res\\merged\\release\\drawable-xhdpi-v4_common_google_signin_btn_icon_light_normal_background.9.png.flat",
+        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-2\\files-2.1\\6d064301158aa86007fb000de44842bf\\jetified-play-services-base-17.0.0\\res\\drawable-xhdpi-v4\\common_google_signin_btn_icon_light_normal_background.9.png"
+    },
+    {
+        "merged": "E:\\projects\\rentswale\\build\\app\\intermediates\\res\\merged\\release\\drawable_rzp_green_button.xml.flat",
+        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-2\\files-2.1\\cd29a179b7c870c868abf36ed01b01a7\\jetified-checkout-1.6.10\\res\\drawable\\rzp_green_button.xml"
+    },
+    {
+        "merged": "E:\\projects\\rentswale\\build\\app\\intermediates\\res\\merged\\release\\drawable-mdpi-v4_googleg_standard_color_18.png.flat",
+        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-2\\files-2.1\\6d064301158aa86007fb000de44842bf\\jetified-play-services-base-17.0.0\\res\\drawable-mdpi-v4\\googleg_standard_color_18.png"
+    },
+    {
+        "merged": "E:\\projects\\rentswale\\build\\app\\intermediates\\res\\merged\\release\\drawable-xxhdpi-v4_rzp_name_logo.png.flat",
+        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-2\\files-2.1\\cd29a179b7c870c868abf36ed01b01a7\\jetified-checkout-1.6.10\\res\\drawable-xxhdpi-v4\\rzp_name_logo.png"
+    },
+    {
+        "merged": "E:\\projects\\rentswale\\build\\app\\intermediates\\res\\merged\\release\\drawable_launch_background.xml.flat",
+        "source": "E:\\projects\\rentswale\\android\\app\\src\\main\\res\\drawable\\launch_background.xml"
+    },
+    {
+        "merged": "E:\\projects\\rentswale\\build\\app\\intermediates\\res\\merged\\release\\layout_rzp_magic_base.xml.flat",
+        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-2\\files-2.1\\cd29a179b7c870c868abf36ed01b01a7\\jetified-checkout-1.6.10\\res\\layout\\rzp_magic_base.xml"
+    },
+    {
+        "merged": "E:\\projects\\rentswale\\build\\app\\intermediates\\res\\merged\\release\\layout_notification_template_icon_group.xml.flat",
+        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-2\\files-2.1\\c7381266eb9872bb1fdbae4b6896d5be\\core-1.2.0-alpha04\\res\\layout\\notification_template_icon_group.xml"
+    },
+    {
+        "merged": "E:\\projects\\rentswale\\build\\app\\intermediates\\res\\merged\\release\\mipmap-xxhdpi_ic_launcher.png.flat",
+        "source": "E:\\projects\\rentswale\\android\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "E:\\projects\\rentswale\\build\\app\\intermediates\\res\\merged\\release\\drawable-hdpi-v4_googleg_standard_color_18.png.flat",
+        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-2\\files-2.1\\6d064301158aa86007fb000de44842bf\\jetified-play-services-base-17.0.0\\res\\drawable-hdpi-v4\\googleg_standard_color_18.png"
+    },
+    {
+        "merged": "E:\\projects\\rentswale\\build\\app\\intermediates\\res\\merged\\release\\drawable_notification_icon_background.xml.flat",
+        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-2\\files-2.1\\c7381266eb9872bb1fdbae4b6896d5be\\core-1.2.0-alpha04\\res\\drawable\\notification_icon_background.xml"
+    },
+    {
+        "merged": "E:\\projects\\rentswale\\build\\app\\intermediates\\res\\merged\\release\\drawable-hdpi-v4_common_google_signin_btn_icon_light_normal_background.9.png.flat",
+        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-2\\files-2.1\\6d064301158aa86007fb000de44842bf\\jetified-play-services-base-17.0.0\\res\\drawable-hdpi-v4\\common_google_signin_btn_icon_light_normal_background.9.png"
+    },
+    {
+        "merged": "E:\\projects\\rentswale\\build\\app\\intermediates\\res\\merged\\release\\drawable-hdpi-v4_ic_upload.png.flat",
+        "source": "E:\\projects\\rentswale\\build\\flutter_uploader\\intermediates\\packaged_res\\release\\drawable-hdpi-v4\\ic_upload.png"
+    },
+    {
+        "merged": "E:\\projects\\rentswale\\build\\app\\intermediates\\res\\merged\\release\\drawable_common_google_signin_btn_text_light.xml.flat",
+        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-2\\files-2.1\\6d064301158aa86007fb000de44842bf\\jetified-play-services-base-17.0.0\\res\\drawable\\common_google_signin_btn_text_light.xml"
+    },
+    {
+        "merged": "E:\\projects\\rentswale\\build\\app\\intermediates\\res\\merged\\release\\drawable_rzp_poweredby.png.flat",
+        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-2\\files-2.1\\cd29a179b7c870c868abf36ed01b01a7\\jetified-checkout-1.6.10\\res\\drawable\\rzp_poweredby.png"
+    },
+    {
+        "merged": "E:\\projects\\rentswale\\build\\app\\intermediates\\res\\merged\\release\\drawable_corner.xml.flat",
+        "source": "E:\\projects\\rentswale\\build\\fluttertoast\\intermediates\\packaged_res\\release\\drawable\\corner.xml"
+    },
+    {
+        "merged": "E:\\projects\\rentswale\\build\\app\\intermediates\\res\\merged\\release\\layout_wallet_test_layout.xml.flat",
+        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-2\\files-2.1\\25dfccc5b87c03fa5e31c289979c70ef\\jetified-play-services-wallet-18.1.2\\res\\layout\\wallet_test_layout.xml"
+    },
+    {
+        "merged": "E:\\projects\\rentswale\\build\\app\\intermediates\\res\\merged\\release\\layout_toast_custom.xml.flat",
+        "source": "E:\\projects\\rentswale\\build\\fluttertoast\\intermediates\\packaged_res\\release\\layout\\toast_custom.xml"
+    },
+    {
+        "merged": "E:\\projects\\rentswale\\build\\app\\intermediates\\res\\merged\\release\\drawable_common_google_signin_btn_icon_light.xml.flat",
+        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-2\\files-2.1\\6d064301158aa86007fb000de44842bf\\jetified-play-services-base-17.0.0\\res\\drawable\\common_google_signin_btn_icon_light.xml"
+    },
+    {
+        "merged": "E:\\projects\\rentswale\\build\\app\\intermediates\\res\\merged\\release\\layout-v21_notification_action_tombstone.xml.flat",
+        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-2\\files-2.1\\c7381266eb9872bb1fdbae4b6896d5be\\core-1.2.0-alpha04\\res\\layout-v21\\notification_action_tombstone.xml"
+    },
+    {
+        "merged": "E:\\projects\\rentswale\\build\\app\\intermediates\\res\\merged\\release\\color_common_google_signin_btn_tint.xml.flat",
+        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-2\\files-2.1\\6d064301158aa86007fb000de44842bf\\jetified-play-services-base-17.0.0\\res\\color\\common_google_signin_btn_tint.xml"
+    },
+    {
+        "merged": "E:\\projects\\rentswale\\build\\app\\intermediates\\res\\merged\\release\\xml_flutter_image_picker_file_paths.xml.flat",
+        "source": "E:\\projects\\rentswale\\build\\image_picker\\intermediates\\packaged_res\\release\\xml\\flutter_image_picker_file_paths.xml"
+    },
+    {
+        "merged": "E:\\projects\\rentswale\\build\\app\\intermediates\\res\\merged\\release\\drawable-xhdpi-v4_notification_bg_low_normal.9.png.flat",
+        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-2\\files-2.1\\c7381266eb9872bb1fdbae4b6896d5be\\core-1.2.0-alpha04\\res\\drawable-xhdpi-v4\\notification_bg_low_normal.9.png"
+    },
+    {
+        "merged": "E:\\projects\\rentswale\\build\\app\\intermediates\\res\\merged\\release\\drawable-xhdpi-v4_notification_bg_low_pressed.9.png.flat",
+        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-2\\files-2.1\\c7381266eb9872bb1fdbae4b6896d5be\\core-1.2.0-alpha04\\res\\drawable-xhdpi-v4\\notification_bg_low_pressed.9.png"
+    },
+    {
+        "merged": "E:\\projects\\rentswale\\build\\app\\intermediates\\res\\merged\\release\\drawable-xxxhdpi-v4_rzp_logo.png.flat",
+        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-2\\files-2.1\\cd29a179b7c870c868abf36ed01b01a7\\jetified-checkout-1.6.10\\res\\drawable-xxxhdpi-v4\\rzp_logo.png"
+    },
+    {
+        "merged": "E:\\projects\\rentswale\\build\\app\\intermediates\\res\\merged\\release\\mipmap-xxxhdpi_ic_launcher_round.png.flat",
+        "source": "E:\\projects\\rentswale\\android\\app\\src\\main\\res\\mipmap-xxxhdpi\\ic_launcher_round.png"
+    },
+    {
+        "merged": "E:\\projects\\rentswale\\build\\app\\intermediates\\res\\merged\\release\\drawable-xxhdpi-v4_common_google_signin_btn_text_dark_normal_background.9.png.flat",
+        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-2\\files-2.1\\6d064301158aa86007fb000de44842bf\\jetified-play-services-base-17.0.0\\res\\drawable-xxhdpi-v4\\common_google_signin_btn_text_dark_normal_background.9.png"
+    },
+    {
+        "merged": "E:\\projects\\rentswale\\build\\app\\intermediates\\res\\merged\\release\\drawable-xhdpi-v4_rzp_logo.png.flat",
+        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-2\\files-2.1\\cd29a179b7c870c868abf36ed01b01a7\\jetified-checkout-1.6.10\\res\\drawable-xhdpi-v4\\rzp_logo.png"
+    },
+    {
+        "merged": "E:\\projects\\rentswale\\build\\app\\intermediates\\res\\merged\\release\\drawable_common_google_signin_btn_icon_light_focused.xml.flat",
+        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-2\\files-2.1\\6d064301158aa86007fb000de44842bf\\jetified-play-services-base-17.0.0\\res\\drawable\\common_google_signin_btn_icon_light_focused.xml"
+    },
+    {
+        "merged": "E:\\projects\\rentswale\\build\\app\\intermediates\\res\\merged\\release\\mipmap-anydpi-v26_ic_launcher.xml.flat",
+        "source": "E:\\projects\\rentswale\\android\\app\\src\\main\\res\\mipmap-anydpi-v26\\ic_launcher.xml"
+    },
+    {
+        "merged": "E:\\projects\\rentswale\\build\\app\\intermediates\\res\\merged\\release\\drawable-xhdpi-v4_common_full_open_on_phone.png.flat",
+        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-2\\files-2.1\\6d064301158aa86007fb000de44842bf\\jetified-play-services-base-17.0.0\\res\\drawable-xhdpi-v4\\common_full_open_on_phone.png"
+    },
+    {
+        "merged": "E:\\projects\\rentswale\\build\\app\\intermediates\\res\\merged\\release\\layout-v21_notification_template_custom_big.xml.flat",
+        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-2\\files-2.1\\c7381266eb9872bb1fdbae4b6896d5be\\core-1.2.0-alpha04\\res\\layout-v21\\notification_template_custom_big.xml"
+    },
+    {
+        "merged": "E:\\projects\\rentswale\\build\\app\\intermediates\\res\\merged\\release\\drawable-hdpi-v4_common_google_signin_btn_text_dark_normal_background.9.png.flat",
+        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-2\\files-2.1\\6d064301158aa86007fb000de44842bf\\jetified-play-services-base-17.0.0\\res\\drawable-hdpi-v4\\common_google_signin_btn_text_dark_normal_background.9.png"
+    },
+    {
+        "merged": "E:\\projects\\rentswale\\build\\app\\intermediates\\res\\merged\\release\\mipmap-mdpi_ic_launcher_round.png.flat",
+        "source": "E:\\projects\\rentswale\\android\\app\\src\\main\\res\\mipmap-mdpi\\ic_launcher_round.png"
+    },
+    {
+        "merged": "E:\\projects\\rentswale\\build\\app\\intermediates\\res\\merged\\release\\drawable-mdpi-v4_common_google_signin_btn_icon_light_normal_background.9.png.flat",
+        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-2\\files-2.1\\6d064301158aa86007fb000de44842bf\\jetified-play-services-base-17.0.0\\res\\drawable-mdpi-v4\\common_google_signin_btn_icon_light_normal_background.9.png"
+    },
+    {
+        "merged": "E:\\projects\\rentswale\\build\\app\\intermediates\\res\\merged\\release\\drawable_rzp_border_bottom.xml.flat",
+        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-2\\files-2.1\\cd29a179b7c870c868abf36ed01b01a7\\jetified-checkout-1.6.10\\res\\drawable\\rzp_border_bottom.xml"
+    },
+    {
+        "merged": "E:\\projects\\rentswale\\build\\app\\intermediates\\res\\merged\\release\\mipmap-xxxhdpi_ic_launcher_foreground.png.flat",
+        "source": "E:\\projects\\rentswale\\android\\app\\src\\main\\res\\mipmap-xxxhdpi\\ic_launcher_foreground.png"
+    },
+    {
+        "merged": "E:\\projects\\rentswale\\build\\app\\intermediates\\res\\merged\\release\\drawable-ldpi-v4_rzp_logo.png.flat",
+        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-2\\files-2.1\\cd29a179b7c870c868abf36ed01b01a7\\jetified-checkout-1.6.10\\res\\drawable-ldpi-v4\\rzp_logo.png"
+    },
+    {
+        "merged": "E:\\projects\\rentswale\\build\\app\\intermediates\\res\\merged\\release\\drawable-xhdpi-v4_notification_bg_normal.9.png.flat",
+        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-2\\files-2.1\\c7381266eb9872bb1fdbae4b6896d5be\\core-1.2.0-alpha04\\res\\drawable-xhdpi-v4\\notification_bg_normal.9.png"
+    },
+    {
+        "merged": "E:\\projects\\rentswale\\build\\app\\intermediates\\res\\merged\\release\\mipmap-anydpi-v26_ic_launcher_round.xml.flat",
+        "source": "E:\\projects\\rentswale\\android\\app\\src\\main\\res\\mipmap-anydpi-v26\\ic_launcher_round.xml"
+    },
+    {
+        "merged": "E:\\projects\\rentswale\\build\\app\\intermediates\\res\\merged\\release\\layout_notification_action_tombstone.xml.flat",
+        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-2\\files-2.1\\c7381266eb9872bb1fdbae4b6896d5be\\core-1.2.0-alpha04\\res\\layout\\notification_action_tombstone.xml"
+    },
+    {
+        "merged": "E:\\projects\\rentswale\\build\\app\\intermediates\\res\\merged\\release\\drawable-xxhdpi-v4_googleg_standard_color_18.png.flat",
+        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-2\\files-2.1\\6d064301158aa86007fb000de44842bf\\jetified-play-services-base-17.0.0\\res\\drawable-xxhdpi-v4\\googleg_standard_color_18.png"
+    },
+    {
+        "merged": "E:\\projects\\rentswale\\build\\app\\intermediates\\res\\merged\\release\\drawable-hdpi-v4_rzp_logo.png.flat",
+        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-2\\files-2.1\\cd29a179b7c870c868abf36ed01b01a7\\jetified-checkout-1.6.10\\res\\drawable-hdpi-v4\\rzp_logo.png"
+    },
+    {
+        "merged": "E:\\projects\\rentswale\\build\\app\\intermediates\\res\\merged\\release\\color_common_google_signin_btn_text_dark.xml.flat",
+        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-2\\files-2.1\\6d064301158aa86007fb000de44842bf\\jetified-play-services-base-17.0.0\\res\\color\\common_google_signin_btn_text_dark.xml"
+    },
+    {
+        "merged": "E:\\projects\\rentswale\\build\\app\\intermediates\\res\\merged\\release\\drawable-xhdpi-v4_ic_upload.png.flat",
+        "source": "E:\\projects\\rentswale\\build\\flutter_uploader\\intermediates\\packaged_res\\release\\drawable-xhdpi-v4\\ic_upload.png"
+    },
+    {
+        "merged": "E:\\projects\\rentswale\\build\\app\\intermediates\\res\\merged\\release\\drawable-xhdpi-v4_common_google_signin_btn_text_light_normal_background.9.png.flat",
+        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-2\\files-2.1\\6d064301158aa86007fb000de44842bf\\jetified-play-services-base-17.0.0\\res\\drawable-xhdpi-v4\\common_google_signin_btn_text_light_normal_background.9.png"
+    },
+    {
+        "merged": "E:\\projects\\rentswale\\build\\app\\intermediates\\res\\merged\\release\\drawable-hdpi-v4_googleg_disabled_color_18.png.flat",
+        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-2\\files-2.1\\6d064301158aa86007fb000de44842bf\\jetified-play-services-base-17.0.0\\res\\drawable-hdpi-v4\\googleg_disabled_color_18.png"
+    },
+    {
+        "merged": "E:\\projects\\rentswale\\build\\app\\intermediates\\res\\merged\\release\\drawable-xxxhdpi-v4_ic_upload.png.flat",
+        "source": "E:\\projects\\rentswale\\build\\flutter_uploader\\intermediates\\packaged_res\\release\\drawable-xxxhdpi-v4\\ic_upload.png"
+    },
+    {
+        "merged": "E:\\projects\\rentswale\\build\\app\\intermediates\\res\\merged\\release\\drawable_common_google_signin_btn_icon_dark.xml.flat",
+        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-2\\files-2.1\\6d064301158aa86007fb000de44842bf\\jetified-play-services-base-17.0.0\\res\\drawable\\common_google_signin_btn_icon_dark.xml"
+    },
+    {
+        "merged": "E:\\projects\\rentswale\\build\\app\\intermediates\\res\\merged\\release\\drawable-xxhdpi-v4_common_google_signin_btn_icon_light_normal_background.9.png.flat",
+        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-2\\files-2.1\\6d064301158aa86007fb000de44842bf\\jetified-play-services-base-17.0.0\\res\\drawable-xxhdpi-v4\\common_google_signin_btn_icon_light_normal_background.9.png"
+    },
+    {
+        "merged": "E:\\projects\\rentswale\\build\\app\\intermediates\\res\\merged\\release\\raw_rzp_config.json.flat",
+        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-2\\files-2.1\\cd29a179b7c870c868abf36ed01b01a7\\jetified-checkout-1.6.10\\res\\raw\\rzp_config.json"
+    },
+    {
+        "merged": "E:\\projects\\rentswale\\build\\app\\intermediates\\res\\merged\\release\\drawable-hdpi-v4_notification_bg_low_normal.9.png.flat",
+        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-2\\files-2.1\\c7381266eb9872bb1fdbae4b6896d5be\\core-1.2.0-alpha04\\res\\drawable-hdpi-v4\\notification_bg_low_normal.9.png"
+    },
+    {
+        "merged": "E:\\projects\\rentswale\\build\\app\\intermediates\\res\\merged\\release\\mipmap-xxxhdpi_ic_launcher.png.flat",
+        "source": "E:\\projects\\rentswale\\android\\app\\src\\main\\res\\mipmap-xxxhdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "E:\\projects\\rentswale\\build\\app\\intermediates\\res\\merged\\release\\mipmap-hdpi_ic_launcher.png.flat",
+        "source": "E:\\projects\\rentswale\\android\\app\\src\\main\\res\\mipmap-hdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "E:\\projects\\rentswale\\build\\app\\intermediates\\res\\merged\\release\\drawable-xxhdpi-v4_rzp_logo.png.flat",
+        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-2\\files-2.1\\cd29a179b7c870c868abf36ed01b01a7\\jetified-checkout-1.6.10\\res\\drawable-xxhdpi-v4\\rzp_logo.png"
+    },
+    {
+        "merged": "E:\\projects\\rentswale\\build\\app\\intermediates\\res\\merged\\release\\drawable-xxhdpi-v4_common_google_signin_btn_icon_dark_normal_background.9.png.flat",
+        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-2\\files-2.1\\6d064301158aa86007fb000de44842bf\\jetified-play-services-base-17.0.0\\res\\drawable-xxhdpi-v4\\common_google_signin_btn_icon_dark_normal_background.9.png"
+    },
+    {
+        "merged": "E:\\projects\\rentswale\\build\\app\\intermediates\\res\\merged\\release\\drawable_common_google_signin_btn_icon_disabled.xml.flat",
+        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-2\\files-2.1\\6d064301158aa86007fb000de44842bf\\jetified-play-services-base-17.0.0\\res\\drawable\\common_google_signin_btn_icon_disabled.xml"
+    },
+    {
+        "merged": "E:\\projects\\rentswale\\build\\app\\intermediates\\res\\merged\\release\\drawable-anydpi-v24_rzp_logo.xml.flat",
+        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-2\\files-2.1\\cd29a179b7c870c868abf36ed01b01a7\\jetified-checkout-1.6.10\\res\\drawable-anydpi-v24\\rzp_logo.xml"
+    },
+    {
+        "merged": "E:\\projects\\rentswale\\build\\app\\intermediates\\res\\merged\\release\\drawable-hdpi-v4_notification_bg_normal.9.png.flat",
+        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-2\\files-2.1\\c7381266eb9872bb1fdbae4b6896d5be\\core-1.2.0-alpha04\\res\\drawable-hdpi-v4\\notification_bg_normal.9.png"
+    },
+    {
+        "merged": "E:\\projects\\rentswale\\build\\app\\intermediates\\res\\merged\\release\\drawable-watch-v20_common_google_signin_btn_text_dark_normal.xml.flat",
+        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-2\\files-2.1\\1c8a573197fac027bc02147f387131d4\\jetified-play-services-auth-17.0.0\\res\\drawable-watch-v20\\common_google_signin_btn_text_dark_normal.xml"
+    },
+    {
+        "merged": "E:\\projects\\rentswale\\build\\app\\intermediates\\res\\merged\\release\\drawable_notification_bg_low.xml.flat",
+        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-2\\files-2.1\\c7381266eb9872bb1fdbae4b6896d5be\\core-1.2.0-alpha04\\res\\drawable\\notification_bg_low.xml"
+    },
+    {
+        "merged": "E:\\projects\\rentswale\\build\\app\\intermediates\\res\\merged\\release\\drawable_common_google_signin_btn_text_dark.xml.flat",
+        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-2\\files-2.1\\6d064301158aa86007fb000de44842bf\\jetified-play-services-base-17.0.0\\res\\drawable\\common_google_signin_btn_text_dark.xml"
+    },
+    {
+        "merged": "E:\\projects\\rentswale\\build\\app\\intermediates\\res\\merged\\release\\drawable-mdpi-v4_common_google_signin_btn_icon_dark_normal_background.9.png.flat",
+        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-2\\files-2.1\\6d064301158aa86007fb000de44842bf\\jetified-play-services-base-17.0.0\\res\\drawable-mdpi-v4\\common_google_signin_btn_icon_dark_normal_background.9.png"
+    },
+    {
+        "merged": "E:\\projects\\rentswale\\build\\app\\intermediates\\res\\merged\\release\\drawable_common_google_signin_btn_text_disabled.xml.flat",
+        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-2\\files-2.1\\6d064301158aa86007fb000de44842bf\\jetified-play-services-base-17.0.0\\res\\drawable\\common_google_signin_btn_text_disabled.xml"
+    },
+    {
+        "merged": "E:\\projects\\rentswale\\build\\app\\intermediates\\res\\merged\\release\\color_wallet_primary_text_holo_light.xml.flat",
+        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-2\\files-2.1\\25dfccc5b87c03fa5e31c289979c70ef\\jetified-play-services-wallet-18.1.2\\res\\color\\wallet_primary_text_holo_light.xml"
+    },
+    {
+        "merged": "E:\\projects\\rentswale\\build\\app\\intermediates\\res\\merged\\release\\drawable-watch-v20_common_google_signin_btn_text_disabled.xml.flat",
+        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-2\\files-2.1\\1c8a573197fac027bc02147f387131d4\\jetified-play-services-auth-17.0.0\\res\\drawable-watch-v20\\common_google_signin_btn_text_disabled.xml"
+    },
+    {
+        "merged": "E:\\projects\\rentswale\\build\\app\\intermediates\\res\\merged\\release\\layout_notification_template_part_chronometer.xml.flat",
+        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-2\\files-2.1\\c7381266eb9872bb1fdbae4b6896d5be\\core-1.2.0-alpha04\\res\\layout\\notification_template_part_chronometer.xml"
+    },
+    {
+        "merged": "E:\\projects\\rentswale\\build\\app\\intermediates\\res\\merged\\release\\drawable_rzp_loader_circle.xml.flat",
+        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-2\\files-2.1\\cd29a179b7c870c868abf36ed01b01a7\\jetified-checkout-1.6.10\\res\\drawable\\rzp_loader_circle.xml"
+    },
+    {
+        "merged": "E:\\projects\\rentswale\\build\\app\\intermediates\\res\\merged\\release\\drawable-mdpi-v4_notify_panel_notification_icon_bg.png.flat",
+        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-2\\files-2.1\\c7381266eb9872bb1fdbae4b6896d5be\\core-1.2.0-alpha04\\res\\drawable-mdpi-v4\\notify_panel_notification_icon_bg.png"
+    },
+    {
+        "merged": "E:\\projects\\rentswale\\build\\app\\intermediates\\res\\merged\\release\\drawable-xhdpi-v4_common_google_signin_btn_text_dark_normal_background.9.png.flat",
+        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-2\\files-2.1\\6d064301158aa86007fb000de44842bf\\jetified-play-services-base-17.0.0\\res\\drawable-xhdpi-v4\\common_google_signin_btn_text_dark_normal_background.9.png"
+    },
+    {
+        "merged": "E:\\projects\\rentswale\\build\\app\\intermediates\\res\\merged\\release\\drawable_common_google_signin_btn_icon_dark_normal.xml.flat",
+        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-2\\files-2.1\\6d064301158aa86007fb000de44842bf\\jetified-play-services-base-17.0.0\\res\\drawable\\common_google_signin_btn_icon_dark_normal.xml"
+    },
+    {
+        "merged": "E:\\projects\\rentswale\\build\\app\\intermediates\\res\\merged\\release\\drawable-hdpi-v4_notification_bg_low_pressed.9.png.flat",
+        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-2\\files-2.1\\c7381266eb9872bb1fdbae4b6896d5be\\core-1.2.0-alpha04\\res\\drawable-hdpi-v4\\notification_bg_low_pressed.9.png"
+    },
+    {
+        "merged": "E:\\projects\\rentswale\\build\\app\\intermediates\\res\\merged\\release\\drawable-xhdpi-v4_googleg_standard_color_18.png.flat",
+        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-2\\files-2.1\\6d064301158aa86007fb000de44842bf\\jetified-play-services-base-17.0.0\\res\\drawable-xhdpi-v4\\googleg_standard_color_18.png"
+    },
+    {
+        "merged": "E:\\projects\\rentswale\\build\\app\\intermediates\\res\\merged\\release\\drawable-xxhdpi-v4_ic_upload.png.flat",
+        "source": "E:\\projects\\rentswale\\build\\flutter_uploader\\intermediates\\packaged_res\\release\\drawable-xxhdpi-v4\\ic_upload.png"
+    },
+    {
+        "merged": "E:\\projects\\rentswale\\build\\app\\intermediates\\res\\merged\\release\\layout_rzp_loader.xml.flat",
+        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-2\\files-2.1\\cd29a179b7c870c868abf36ed01b01a7\\jetified-checkout-1.6.10\\res\\layout\\rzp_loader.xml"
+    },
+    {
+        "merged": "E:\\projects\\rentswale\\build\\app\\intermediates\\res\\merged\\release\\drawable_common_google_signin_btn_text_dark_focused.xml.flat",
+        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-2\\files-2.1\\6d064301158aa86007fb000de44842bf\\jetified-play-services-base-17.0.0\\res\\drawable\\common_google_signin_btn_text_dark_focused.xml"
+    },
+    {
+        "merged": "E:\\projects\\rentswale\\build\\app\\intermediates\\res\\merged\\release\\drawable-mdpi-v4_common_google_signin_btn_text_dark_normal_background.9.png.flat",
+        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-2\\files-2.1\\6d064301158aa86007fb000de44842bf\\jetified-play-services-base-17.0.0\\res\\drawable-mdpi-v4\\common_google_signin_btn_text_dark_normal_background.9.png"
+    },
+    {
+        "merged": "E:\\projects\\rentswale\\build\\app\\intermediates\\res\\merged\\release\\mipmap-mdpi_ic_launcher.png.flat",
+        "source": "E:\\projects\\rentswale\\android\\app\\src\\main\\res\\mipmap-mdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "E:\\projects\\rentswale\\build\\app\\intermediates\\res\\merged\\release\\layout_notification_action.xml.flat",
+        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-2\\files-2.1\\c7381266eb9872bb1fdbae4b6896d5be\\core-1.2.0-alpha04\\res\\layout\\notification_action.xml"
+    },
+    {
+        "merged": "E:\\projects\\rentswale\\build\\app\\intermediates\\res\\merged\\release\\drawable-xhdpi-v4_common_google_signin_btn_icon_dark_normal_background.9.png.flat",
+        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-2\\files-2.1\\6d064301158aa86007fb000de44842bf\\jetified-play-services-base-17.0.0\\res\\drawable-xhdpi-v4\\common_google_signin_btn_icon_dark_normal_background.9.png"
+    },
+    {
+        "merged": "E:\\projects\\rentswale\\build\\app\\intermediates\\res\\merged\\release\\drawable_common_google_signin_btn_icon_light_normal.xml.flat",
+        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-2\\files-2.1\\6d064301158aa86007fb000de44842bf\\jetified-play-services-base-17.0.0\\res\\drawable\\common_google_signin_btn_icon_light_normal.xml"
+    }
+]
