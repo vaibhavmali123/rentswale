@@ -10,6 +10,8 @@ void main() {
 }
 
 int cartCount = 0;
+bool isServiceAvailable = true;
+String address;
 
 void getCartDetails() async {
   var response = await Database.getCart();

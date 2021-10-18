@@ -9,17 +9,17 @@
         <option name="gradleJvm" value="1.8 (2)" />
         <option name="modules">
           <set>
-            <option value="$PROJECT_DIR$/../../../SDK/latest/flutter/.pub-cache/hosted/pub.dartlang.org/file_picker-4.1.1/android" />
-            <option value="$PROJECT_DIR$/../../../SDK/latest/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_plugin_android_lifecycle-2.0.3/android" />
-            <option value="$PROJECT_DIR$/../../../SDK/latest/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_uploader-1.2.1/android" />
-            <option value="$PROJECT_DIR$/../../../SDK/latest/flutter/.pub-cache/hosted/pub.dartlang.org/fluttertoast-8.0.8/android" />
-            <option value="$PROJECT_DIR$/../../../SDK/latest/flutter/.pub-cache/hosted/pub.dartlang.org/image_picker-0.8.4+1/android" />
-            <option value="$PROJECT_DIR$/../../../SDK/latest/flutter/.pub-cache/hosted/pub.dartlang.org/path_provider-2.0.4/android" />
-            <option value="$PROJECT_DIR$/../../../SDK/latest/flutter/.pub-cache/hosted/pub.dartlang.org/pay_android-1.0.4/android" />
-            <option value="$PROJECT_DIR$/../../../SDK/latest/flutter/.pub-cache/hosted/pub.dartlang.org/razorpay_flutter-1.2.7/android" />
-            <option value="$PROJECT_DIR$/../../../SDK/latest/flutter/.pub-cache/hosted/pub.dartlang.org/shared_preferences-2.0.7/android" />
-            <option value="$PROJECT_DIR$/../../../SDK/latest/flutter/.pub-cache/hosted/pub.dartlang.org/sqflite-2.0.0+4/android" />
-            <option value="$PROJECT_DIR$/../../../SDK/latest/flutter/.pub-cache/hosted/pub.dartlang.org/url_launcher-6.0.10/android" />
+            <option value="$PROJECT_DIR$/../../../../../SDK/latest/flutter/.pub-cache/hosted/pub.dartlang.org/file_picker-4.1.1/android" />
+            <option value="$PROJECT_DIR$/../../../../../SDK/latest/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_plugin_android_lifecycle-2.0.3/android" />
+            <option value="$PROJECT_DIR$/../../../../../SDK/latest/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_uploader-1.2.1/android" />
+            <option value="$PROJECT_DIR$/../../../../../SDK/latest/flutter/.pub-cache/hosted/pub.dartlang.org/fluttertoast-8.0.8/android" />
+            <option value="$PROJECT_DIR$/../../../../../SDK/latest/flutter/.pub-cache/hosted/pub.dartlang.org/image_picker-0.8.4+1/android" />
+            <option value="$PROJECT_DIR$/../../../../../SDK/latest/flutter/.pub-cache/hosted/pub.dartlang.org/path_provider-2.0.4/android" />
+            <option value="$PROJECT_DIR$/../../../../../SDK/latest/flutter/.pub-cache/hosted/pub.dartlang.org/pay_android-1.0.4/android" />
+            <option value="$PROJECT_DIR$/../../../../../SDK/latest/flutter/.pub-cache/hosted/pub.dartlang.org/razorpay_flutter-1.2.7/android" />
+            <option value="$PROJECT_DIR$/../../../../../SDK/latest/flutter/.pub-cache/hosted/pub.dartlang.org/shared_preferences-2.0.7/android" />
+            <option value="$PROJECT_DIR$/../../../../../SDK/latest/flutter/.pub-cache/hosted/pub.dartlang.org/sqflite-2.0.0+4/android" />
+            <option value="$PROJECT_DIR$/../../../../../SDK/latest/flutter/.pub-cache/hosted/pub.dartlang.org/url_launcher-6.0.10/android" />
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
           </set>

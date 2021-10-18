@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "E:\\projects\\rentswale\\build\\app\\intermediates\\incremental\\mergeReleaseResources\\merged.dir\\values-da\\values-da.xml",
+            "outputFile": "E:\\projects\\git backup\\rentswale\\rentswale\\build\\app\\intermediates\\incremental\\mergeReleaseResources\\merged.dir\\values-da\\values-da.xml",
             "map": [
                 {
                     "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-2\\files-2.1\\c7381266eb9872bb1fdbae4b6896d5be\\core-1.2.0-alpha04\\res\\values-da\\values-da.xml",

@@ -79,7 +79,7 @@
                                             <option name="values">
                                               <map>
                                                 <entry key="color" value="000000" />
-                                                <entry key="imagePath" value="C:\Users\Admin\Downloads\appIcon.png" />
+                                                <entry key="imagePath" value="C:\Users\Admin\Downloads\applogo.png" />
                                                 <entry key="scalingPercent" value="90" />
                                               </map>
                                             </option>
@@ -113,7 +113,7 @@
                                   <option name="values">
                                     <map>
                                       <entry key="backgroundAssetType" value="COLOR" />
-                                      <entry key="backgroundColor" value="dc1f2c" />
+                                      <entry key="backgroundColor" value="ffffff" />
                                     </map>
                                   </option>
                                 </PersistentState>

@@ -157,7 +157,7 @@ class CreateAccountScreenState extends State<CreateAccountScreen> {
                       stream: createAccountBloc.createAccountStream,
                       builder: (context, AsyncSnapshot<CreateAccountModel> snapshot) {
                         if (snapshot.hasData) {
-                          Utils.showMessage(message: snapshot.data.message, type: true);
+                          //  Utils.showMessage(message: snapshot.data.message, type: true);
                           navigate();
                         }
                         return Text(
@@ -174,8 +174,8 @@ class CreateAccountScreenState extends State<CreateAccountScreen> {
 
   void initControllers() {}
 
-  void navigate() async {
-    await Navigator.push(context, MaterialPageRoute(builder: (context) {
+  void navigate() {
+    Navigator.push(context, MaterialPageRoute(builder: (context) {
       return LoginPage();
     }));
   }

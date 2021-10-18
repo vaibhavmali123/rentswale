@@ -6,6 +6,7 @@ import 'package:rentswale/models/LoginModel.dart';
 import 'package:rentswale/utils/Colors.dart';
 import 'package:rentswale/utils/utils.dart';
 import 'package:rentswale/views/CreateAccountScreen.dart';
+import 'package:rentswale/views/Dashboard.dart';
 import 'package:rentswale/views/PlaceOrderScreen.dart';
 
 class LoginPage extends StatefulWidget {
@@ -146,18 +147,26 @@ class LoginPageState extends State<LoginPage> {
       print("SNSNSNSSS ${event.statusCode}");
       if (event.statusCode == "200") {
         Database.initDatabase();
-        Database.setUserName(event.result.name);
+        Database.setName(event.result.name);
+        print("SNSNSNSSS ${Database.getName()}");
+        Database.setUserName(event.result.username);
         Database.setEmail(event.result.emailAddress);
         Database.setUserId(event.result.id);
         setState(() {
           showLoader = false;
         });
-        Navigator.push(context, MaterialPageRoute(builder: (context) {
-          return PlaceOrderScreen(
-            listProducts: listProducts,
-            couponAmount: couponAmount,
-          );
-        }));
+        if (listProducts != null) {
+          Navigator.push(context, MaterialPageRoute(builder: (context) {
+            return PlaceOrderScreen(
+              listProducts: listProducts,
+              couponAmount: couponAmount,
+            );
+          }));
+        } else {
+          Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) {
+            return Dashboard();
+          }));
+        }
       } else {
         setState(() {
           showLoader = false;

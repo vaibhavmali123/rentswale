@@ -21,7 +21,6 @@ class HomePageNavState extends State<HomePageNav> {
     {'title': 'Costume', 'icon': 'assets/images/costume.png', 'id': '3'},
     {'title': 'Vehicles', 'icon': 'assets/images/vehicle.png', 'id': '5'},
     {'title': 'Events', 'icon': 'assets/images/events.png', 'id': '6'},
-    {'title': 'Events', 'icon': 'assets/images/events.png', 'id': '6'},
     {'title': 'Medical', 'icon': 'assets/images/me.png', 'id': '7'},
     {'title': 'Furniture', 'icon': 'assets/images/furniture.png', 'id': '8'},
     {'title': 'Services', 'icon': 'assets/images/service.png', 'id': '9'},
@@ -34,19 +33,41 @@ class HomePageNavState extends State<HomePageNav> {
   ];
 
   @override
+  void initState() {
+    /* Database.initDatabase();
+    address = Database.getAddres();
+   */
+    Future.delayed(Duration(seconds: 1), () {
+      productsHomeBloc.fetchProductsHome(address: "address");
+    });
+    super.initState();
+  }
+
+  @override
+  void didUpdateWidget(covariant HomePageNav oldWidget) {
+    // TODO: implement didUpdateWidget
+    super.didUpdateWidget(oldWidget);
+    productsHomeBloc.fetchProductsHome(address: "address");
+  }
+
+  @override
+  bool get mounted {
+    productsHomeBloc.fetchProductsHome(address: "address");
+  }
+
+  @override
   Widget build(BuildContext context) {
-    productsHomeBloc.fetchProductsHome();
+    productsHomeBloc.fetchProductsHome(address: "address");
     return Scaffold(
       backgroundColor: Colors.grey.shade100,
       body: SingleChildScrollView(
         child: Container(
+          height: MediaQuery.of(context).size.height,
           child: Column(
             children: [
               Column(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  getSlider(), /*getLine()*/
-                ],
+                children: [getSlider()],
               ),
               getCategories(),
               getHomeProducts(),
@@ -161,79 +182,88 @@ class HomePageNavState extends State<HomePageNav> {
   }
 
   getHomeProducts() {
-    return Container(
-      width: MediaQuery.of(context).size.width,
-      height: 180,
-      child: StreamBuilder(
-          stream: productsHomeBloc.productStream,
-          builder: (context, AsyncSnapshot<List<ProductList>> snapshot) {
-            if (snapshot.hasData) {
-              return ListView.builder(
-                scrollDirection: Axis.horizontal,
-                itemCount: snapshot.data.length,
-                itemBuilder: (context, index) {
-                  return GestureDetector(
-                    onTap: () {
-                      Navigator.push(context, MaterialPageRoute(builder: (context) {
-                        return ProductDetails(data: snapshot.data[index]);
-                      }));
-                    },
-                    child: Container(
-                      width: MediaQuery.of(context).size.width / 2.6,
-                      height: 120,
-                      decoration: BoxDecoration(color: Colors.white, borderRadius: BorderRadius.circular(8.0) /*,
+    return Column(
+      children: [
+        Container(
+          width: MediaQuery.of(context).size.width,
+          height: 180,
+          child: StreamBuilder(
+              stream: productsHomeBloc.productStream,
+              builder: (context, AsyncSnapshot<ProductsListModel> snapshot) {
+                if (snapshot.hasData) {
+                  return snapshot.data.statusCode == "200"
+                      ? ListView.builder(
+                          scrollDirection: Axis.horizontal,
+                          itemCount: snapshot.data.productList.length,
+                          itemBuilder: (context, index) {
+                            return GestureDetector(
+                              onTap: () {
+                                Navigator.push(context, MaterialPageRoute(builder: (context) {
+                                  return ProductDetails(data: snapshot.data.productList[index]);
+                                }));
+                              },
+                              child: Container(
+                                width: MediaQuery.of(context).size.width / 2.6,
+                                height: 120,
+                                decoration: BoxDecoration(color: Colors.white, borderRadius: BorderRadius.circular(8.0) /*,
                           boxShadow: [BoxShadow(offset: Offset(1.4, 1.4),
                               color: Colors.grey.shade500, spreadRadius: 0.6, blurRadius: 0.8)]*/
-                          ),
-                      margin: EdgeInsets.only(bottom: 10, left: 10),
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: [
-                          Image.network(
-                            snapshot.data[index].itemImgOne != null && snapshot.data[index].itemImgOne != "" ? ApiProvider.baseUrlImage + snapshot.data[index].itemImgOne : 'ps500x-3-500-lumens-xga-education-projector-500x500.jpg',
-                            fit: BoxFit.contain,
-                            scale: 0.4,
-                            height: 110,
-                            width: 120,
-                          ),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Flexible(
-                                //width: MediaQuery.of(context).size.width / 8,
-                                child: Text(
-                                  snapshot.data[index].itemName,
-                                  maxLines: 2,
-                                  softWrap: true,
-                                  overflow: TextOverflow.ellipsis,
-                                  style: GoogleFonts.poppins(fontSize: 12, color: Colors.black87.withOpacity(0.7), fontWeight: FontWeight.w700) /* TextStyle(fontSize: 12, color: Colors.black87.withOpacity(0.6), fontWeight: FontWeight.w800)*/,
+                                    ),
+                                margin: EdgeInsets.only(bottom: 10, left: 10),
+                                child: Column(
+                                  mainAxisAlignment: MainAxisAlignment.start,
+                                  children: [
+                                    Image.network(
+                                      snapshot.data.productList[index].itemImgOne != null && snapshot.data.productList[index].itemImgOne != "" ? ApiProvider.baseUrlImage + snapshot.data.productList[index].itemImgOne : 'ps500x-3-500-lumens-xga-education-projector-500x500.jpg',
+                                      fit: BoxFit.contain,
+                                      scale: 0.4,
+                                      height: 110,
+                                      width: 120,
+                                    ),
+                                    Row(
+                                      mainAxisAlignment: MainAxisAlignment.center,
+                                      children: [
+                                        Flexible(
+                                          //width: MediaQuery.of(context).size.width / 8,
+                                          child: Text(
+                                            snapshot.data.productList[index].itemName,
+                                            maxLines: 2,
+                                            softWrap: true,
+                                            overflow: TextOverflow.ellipsis,
+                                            style: GoogleFonts.poppins(fontSize: 12, color: Colors.black87.withOpacity(0.7), fontWeight: FontWeight.w700) /* TextStyle(fontSize: 12, color: Colors.black87.withOpacity(0.6), fontWeight: FontWeight.w800)*/,
+                                          ),
+                                        )
+                                      ],
+                                    ),
+                                    SizedBox(
+                                      height: 5,
+                                    ),
+                                    Text(
+                                      'Price:  ₹ ' + snapshot.data.productList[index].price,
+                                      style: GoogleFonts.poppins(fontSize: 12, fontWeight: FontWeight.w600, color: Colors.black87.withOpacity(0.6)) /*TextStyle(fontSize: 13, fontWeight: FontWeight.w700, color: Colors.black87.withOpacity(0.7))*/,
+                                    )
+                                  ],
                                 ),
-                              )
-                            ],
-                          ),
-                          SizedBox(
-                            height: 5,
-                          ),
-                          Text(
-                            'Price:  ₹ ' + snapshot.data[index].price,
-                            style: GoogleFonts.poppins(fontSize: 12, fontWeight: FontWeight.w600, color: Colors.black87.withOpacity(0.6)) /*TextStyle(fontSize: 13, fontWeight: FontWeight.w700, color: Colors.black87.withOpacity(0.7))*/,
-                          )
-                        ],
-                      ),
-                    ),
+                              ),
+                            );
+                          },
+                        )
+                      : Center(
+                          child: Text('Soon we will service in this area'),
+                        );
+                } else if (snapshot.hasData == false) {
+                  return Container(
+                    width: MediaQuery.of(context).size.width,
+                    height: 55,
+                    child: Lottie.asset("assets/lotties/loader.json"),
                   );
-                },
-              );
-            } else if (snapshot.hasData == false) {
-              return Container(
-                width: MediaQuery.of(context).size.width,
-                height: 55,
-                child: Lottie.asset("assets/lotties/loader.json"),
-              );
-            } else {
-              return Utils.noData;
-            }
-          }),
+                } else {
+                  return Utils.noData;
+                }
+              }),
+        ),
+        Image.asset("assets/images/Now_Work_From_Anywhere.png", scale: 0.3, width: MediaQuery.of(context).size.width, fit: BoxFit.cover)
+      ],
     );
   }
 

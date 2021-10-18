@@ -23,7 +23,7 @@ class SubcategoriesPage extends StatefulWidget {
 class SubcategoriesPageState extends State<SubcategoriesPage> {
   String categoryId, title, subCategoryId;
   List<SubcategoryList> listSubcategories = [];
-
+  bool isAvailable = false;
   SubcategoriesPageState(this.categoryId, this.title);
 
   @override
@@ -72,13 +72,17 @@ class SubcategoriesPageState extends State<SubcategoriesPage> {
                   alignment: Alignment.topRight,
                   child: IconButton(
                       onPressed: () {
-                        showSearch(context: context, delegate: SearchSubcategories(listSubCategories: listSubcategories, categoryId: categoryId)).then((value) {
-                          print("KKKKKKKKKKKKKKK ${value.toString()}");
-                          setState(() {
-                            subCategoryId = value;
-                            productListBloc.fetchProductsList(categoryId: categoryId, subCategoryId: subCategoryId);
+                        if (isAvailable == true) {
+                          showSearch(context: context, delegate: SearchSubcategories(listSubCategories: listSubcategories, categoryId: categoryId)).then((value) {
+                            print("KKKKKKKKKKKKKKK ${value.toString()}");
+                            setState(() {
+                              subCategoryId = value;
+                              productListBloc.fetchProductsList(categoryId: categoryId, subCategoryId: subCategoryId);
+                            });
                           });
-                        });
+                        } else {
+                          Utils.showMessage(message: "Soon we will service in this area", type: false);
+                        }
                       },
                       icon: Icon(
                         Icons.filter_list,
@@ -95,54 +99,60 @@ class SubcategoriesPageState extends State<SubcategoriesPage> {
         width: MediaQuery.of(context).size.width,
         child: StreamBuilder(
           stream: productListBloc.productListStream,
-          builder: (context, AsyncSnapshot<List<ProductList>> snapshot) {
-            print("SSSSNNN ${snapshot.data?.length}");
+          builder: (context, AsyncSnapshot<ProductsListModel> snapshot) {
             if (snapshot.hasData == true) {
               // listSubcategories = snapshot.data;
-              return ListView.builder(
-                  itemCount: snapshot.data.length,
-                  //  scrollDirection:Axis.horizontal,
-                  itemBuilder: (context, index) {
-                    return GestureDetector(
-                        onTap: () {
-                          Navigator.push(context, MaterialPageRoute(builder: (context) {
-                            return ProductDetails(data: snapshot.data[index]);
-                          }));
-                        },
-                        child: Container(
-                          height: 80,
-                          margin: EdgeInsets.only(left: 20, right: 20, top: 10),
-                          width: MediaQuery.of(context).size.width / 1.4,
-                          decoration: BoxDecoration(color: Colors.white, borderRadius: BorderRadius.circular(10.0), boxShadow: [BoxShadow(offset: Offset(0.5, 0.5), blurRadius: 0.2, spreadRadius: 0.2, color: Colors.grey)]),
-                          child: Row(
-                            children: [
-                              Expanded(
-                                  flex: 1,
-                                  child: Image.network(
-                                    'http://rentswale.com/admin/uploads/item/' + snapshot.data[index].itemImg,
-                                  )),
-                              Expanded(
-                                  flex: 3,
-                                  child: Padding(
-                                    padding: EdgeInsets.only(left: 10, top: 14),
-                                    child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-                                      Text(
-                                        snapshot.data[index].itemName,
-                                        style: GoogleFonts.poppins(fontSize: 13, fontWeight: FontWeight.w700, color: Colors.black87.withOpacity(0.7) /* TextStyle(fontSize: 13, fontWeight: FontWeight.w700, color: Colors.black87.withOpacity(0.7)*/),
-                                      ),
-                                      SizedBox(
-                                        height: 10,
-                                      ),
-                                      Text(
-                                        'Price:  ₹ ' + snapshot.data[index].price,
-                                        style: GoogleFonts.poppins(fontSize: 13, fontWeight: FontWeight.w600, color: Colors.black87.withOpacity(0.6)),
-                                      )
-                                    ]),
-                                  ))
-                            ],
-                          ),
-                        ));
-                  });
+              if (snapshot.data.statusCode == "200") {
+                isAvailable = true;
+                return ListView.builder(
+                    itemCount: snapshot.data.productList.length,
+                    //  scrollDirection:Axis.horizontal,
+                    itemBuilder: (context, index) {
+                      return GestureDetector(
+                          onTap: () {
+                            Navigator.push(context, MaterialPageRoute(builder: (context) {
+                              return ProductDetails(data: snapshot.data.productList[index]);
+                            }));
+                          },
+                          child: Container(
+                            height: 80,
+                            margin: EdgeInsets.only(left: 20, right: 20, top: 10),
+                            width: MediaQuery.of(context).size.width / 1.4,
+                            decoration: BoxDecoration(color: Colors.white, borderRadius: BorderRadius.circular(10.0), boxShadow: [BoxShadow(offset: Offset(0.5, 0.5), blurRadius: 0.2, spreadRadius: 0.2, color: Colors.grey)]),
+                            child: Row(
+                              children: [
+                                Expanded(
+                                    flex: 1,
+                                    child: Image.network(
+                                      'http://rentswale.com/admin/uploads/item/' + snapshot.data.productList[index].itemImg,
+                                    )),
+                                Expanded(
+                                    flex: 3,
+                                    child: Padding(
+                                      padding: EdgeInsets.only(left: 10, top: 14),
+                                      child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+                                        Text(
+                                          snapshot.data.productList[index].itemName,
+                                          style: GoogleFonts.poppins(fontSize: 13, fontWeight: FontWeight.w700, color: Colors.black87.withOpacity(0.7) /* TextStyle(fontSize: 13, fontWeight: FontWeight.w700, color: Colors.black87.withOpacity(0.7)*/),
+                                        ),
+                                        SizedBox(
+                                          height: 10,
+                                        ),
+                                        Text(
+                                          'Price:  ₹ ' + snapshot.data.productList[index].price,
+                                          style: GoogleFonts.poppins(fontSize: 13, fontWeight: FontWeight.w600, color: Colors.black87.withOpacity(0.6)),
+                                        )
+                                      ]),
+                                    ))
+                              ],
+                            ),
+                          ));
+                    });
+              } else {
+                return Center(
+                  child: Text('Soon we will service in this area'),
+                );
+              }
             } else if (snapshot.hasData == false) {
               return Center(
                 child: Utils.animatedLoader,

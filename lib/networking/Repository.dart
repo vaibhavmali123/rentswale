@@ -1,11 +1,14 @@
 import 'dart:convert';
 
+import 'package:intl/intl.dart';
 import 'package:rentswale/database/Database.dart';
 import 'package:rentswale/models/AllProductsModel.dart';
 import 'package:rentswale/models/CheckCouponModel.dart';
 import 'package:rentswale/models/CreateAccountModel.dart';
 import 'package:rentswale/models/KycModel.dart';
 import 'package:rentswale/models/LoginModel.dart';
+import 'package:rentswale/models/OffersModel.dart';
+import 'package:rentswale/models/OrderHistoryModel.dart';
 import 'package:rentswale/models/ProductDetailsModel.dart';
 import 'package:rentswale/models/ProductsListModel.dart';
 import 'package:rentswale/models/SubcategoriesModel.dart';
@@ -24,27 +27,37 @@ class Repository {
     });
   }
 
-  static Future<List<ProductList>> getProductList({String categoryId, String subCategoryId}) async {
-    var request = {'category_id': categoryId};
+  static Future<ProductsListModel> getProductList({String categoryId, String subCategoryId}) async {
+    Database.initDatabase();
+    var request = {'category_id': categoryId, "city_name": Database.getAddres() != null ? Database.getAddres() : "Pune"};
     if (subCategoryId != null) {
       request['subcategory_id'] = subCategoryId;
     }
     print("RREEQQ ${request}");
 
     return ApiHandler.postApi(baseUrl: ApiProvider.baseUrl, endApi: EndApi.productList, request: request).then((value) {
-      List<ProductList> listProducts = ProductsListModel.fromJson(value).productList;
-      print("FROM repo ${listProducts?.length}");
+      ProductsListModel productsListModel = ProductsListModel.fromJson(value);
+      print("FROM repo ${productsListModel.statusCode}");
 
-      return listProducts;
+      return productsListModel;
     });
   }
 
-  static Future<List<ProductList>> getProductHome() async {
-    return ApiHandler.postApi(baseUrl: ApiProvider.baseUrl, endApi: EndApi.productHome).then((value) {
-      List<ProductList> listProducts = ProductsListModel.fromJson(value).productList;
-      print("FROM repo ${listProducts?.length}");
+  static Future<ProductsListModel> getProductHome({String address}) {
+    Database.initDatabase();
 
-      return listProducts;
+    print("ADDRESS new ${Database.getAddres()}");
+
+    var request = {"city_name": Database.getAddres() != null ? Database.getAddres() : "Pune"};
+    var request2 = {"user_id": Database.getUserName()};
+
+    print("REQUEST ${request} ${request2}");
+
+    return ApiHandler.postApi(baseUrl: ApiProvider.baseUrl, endApi: EndApi.productHome, request: request).then((value) {
+      ProductsListModel productsListModel = ProductsListModel.fromJson(value);
+      print("FROM repo ${productsListModel.statusCode}");
+
+      return productsListModel;
     });
   }
 
@@ -88,7 +101,10 @@ class Repository {
   static Future<dynamic> placeOrder({List<dynamic> placeOrderList, String address}) {
     Database.initDatabase();
     print("ADDDDR ${Database.getEmail()} ${Database.getUserName()} ${Database.getUserId()}");
-    var request = {'order_arr': json.encode(placeOrderList), 'user_id': Database.getUserId(), 'user_name': Database.getUserName(), 'email': Database.getEmail(), 'phone': '9850179195', 'address': address, 'date': '2021-09-01'};
+    DateTime dateTime = DateTime.now();
+    DateFormat dateFormat = DateFormat("yyyy-MM-dd");
+    String date = dateFormat.format(dateTime);
+    var request = {'order_arr': json.encode(placeOrderList), 'user_id': Database.getUserId(), 'user_name': Database.getUserName(), 'email': Database.getEmail(), 'phone': Database.getUserName(), 'address': address, 'date': date};
     print("REQUEST ${request.toString()}");
     return ApiHandler.postApi(baseUrl: ApiProvider.baseUrl, endApi: EndApi.placeOrder, request: request).then((value) {
       print("RES From REPO ${value.toString()}");
@@ -97,8 +113,13 @@ class Repository {
     });
   }
 
-  static Future<List<AllProductList>> allProducts() {
-    return ApiHandler.postApi(baseUrl: ApiProvider.baseUrl, endApi: EndApi.allProducts).then((value) {
+  static Future<List<AllProductList>> allProducts({String address}) {
+    Database.initDatabase();
+    String addr = Database.getAddres() != null ? Database.getAddres() : "Pune";
+    var request = {"city_name": addr};
+    print("REQUEST  ${request}");
+
+    return ApiHandler.postApi(baseUrl: ApiProvider.baseUrl, endApi: EndApi.allProducts, request: request).then((value) {
       print("FROM repo event ${value}");
 
       List<AllProductList> listProducts = AllProductsModel.fromJson(value).allProductList;
@@ -111,11 +132,34 @@ class Repository {
     Database.initDatabase();
 
     var request = {'adhar_number': aadharNo, 'adhar_card': aadharCard, 'driving_licence': license, 'driving_licence_number': licenseNo, 'address_proof': addressProof, 'username': Database.getUserName()};
+    print("REQUEST ${request}");
+    return ApiHandler.postApi(baseUrl: ApiProvider.baseUrl, endApi: EndApi.kyc, request: request).then((value) {
+      print("REQUEST  RESPONSE ${value}");
 
-    return ApiHandler.postApi(baseUrl: ApiProvider.baseUrl, endApi: EndApi.kyc).then((value) {
       KycModel kycModel = KycModel.fromJson(value);
 
       return kycModel;
+    });
+  }
+
+  static Future<OrderHistoryModel> getOrderHistory() {
+    Database.initDatabase();
+    var request = {"user_id": Database.getUserName()};
+
+    return ApiHandler.postApi(baseUrl: ApiProvider.baseUrl, endApi: EndApi.orderHistory, request: request).then((value) {
+      OrderHistoryModel orderHistoryModel = OrderHistoryModel.fromJson(value);
+
+      return orderHistoryModel;
+    });
+  }
+
+  static Future<OffersModel> getOffers() {
+    return ApiHandler.getApi(baseUrl: ApiProvider.baseUrl, endApi: EndApi.offers).then((value) {
+      OffersModel offersModel = OffersModel.fromJson(value);
+
+      print("RESPONSE ${value}");
+
+      return offersModel;
     });
   }
 }

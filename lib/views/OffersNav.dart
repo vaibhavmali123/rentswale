@@ -1,4 +1,9 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:rentswale/bloc/OffersBloc.dart';
+import 'package:rentswale/models/OffersModel.dart';
+import 'package:rentswale/networking/ApiProvider.dart';
+import 'package:rentswale/utils/utils.dart';
 
 class OffersNav extends StatefulWidget {
   OffersNavState createState() => OffersNavState();
@@ -7,7 +12,9 @@ class OffersNav extends StatefulWidget {
 class OffersNavState extends State<OffersNav> {
   @override
   Widget build(BuildContext context) {
+    offersBloc.getOffers();
     return Scaffold(
+      backgroundColor: Colors.grey.shade50,
       appBar: AppBar(
         backgroundColor: Colors.white,
         elevation: 0,
@@ -23,21 +30,33 @@ class OffersNavState extends State<OffersNav> {
         ],
       ),
       body: Container(
-        color: Colors.white,
-        child: Center(
-          child: Text('Offeres is  under development'),
-        ),
-      ),
-    );
-  }
+          color: Colors.grey.shade50,
+          child: StreamBuilder(
+            stream: offersBloc.offersStream,
+            builder: (context, AsyncSnapshot<OffersModel> snapshot) {
+              if (snapshot.hasData) {
+                print("RESPONSE snapshot ${snapshot.data.statusCode}");
 
-  void showFilter() {
-    /* showSearch(context: context, delegate: SearchSubcategories(listSubCategories: listSubcategories, categoryId: categoryId)).then((value) {
-      print("KKKKKKKKKKKKKKK ${value.toString()}");
-      setState(() {
-        subCategoryId = value;
-        productListBloc.fetchProductsList(categoryId: categoryId, subCategoryId: subCategoryId);
-      });
-    });*/
+                return ListView.builder(
+                    itemCount: snapshot.data.offerList.length,
+                    itemBuilder: (context, index) {
+                      return Container(
+                        height: 70,
+                        margin: EdgeInsets.only(left: 12, right: 12, top: 12),
+                        color: Colors.white,
+                        child: Image.network(
+                          ApiProvider.baseUrlImage + snapshot.data.offerList[index].sliderImage,
+                          fit: BoxFit.contain,
+                        ),
+                      );
+                    });
+              } else if (snapshot.connectionState == ConnectionState.waiting) {
+                return Utils.loader;
+              } else {
+                return Utils.noData;
+              }
+            },
+          )),
+    );
   }
 }

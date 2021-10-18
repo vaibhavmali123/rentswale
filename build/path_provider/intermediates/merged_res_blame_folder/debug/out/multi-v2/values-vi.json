@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "E:\\projects\\rentswale\\build\\path_provider\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-vi\\values-vi.xml",
+            "outputFile": "E:\\projects\\git backup\\rentswale\\rentswale\\build\\path_provider\\intermediates\\res\\merged\\debug\\values-vi\\values-vi.xml",
             "map": [
                 {
                     "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-2\\files-2.1\\dedc580d70cb626931f368f031b4e88d\\core-1.1.0\\res\\values-vi\\values-vi.xml",
@@ -16,7 +16,7 @@
             ]
         },
         {
-            "outputFile": "E:\\projects\\rentswale\\build\\path_provider\\intermediates\\res\\merged\\debug\\values-vi\\values-vi.xml",
+            "outputFile": "E:\\projects\\git backup\\rentswale\\rentswale\\build\\path_provider\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-vi\\values-vi.xml",
             "map": [
                 {
                     "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-2\\files-2.1\\dedc580d70cb626931f368f031b4e88d\\core-1.1.0\\res\\values-vi\\values-vi.xml",

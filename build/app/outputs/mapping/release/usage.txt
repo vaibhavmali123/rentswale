@@ -7105,8 +7105,8 @@ kotlin.TuplesKt:
     public static final java.util.List toList(kotlin.Pair)
     public static final java.util.List toList(kotlin.Triple)
 com.google.common.net.MediaType
-com.google.common.collect.GwtTransient
 androidx.core.view.inputmethod.InputConnectionCompat$2
+com.google.common.collect.GwtTransient
 androidx.core.view.accessibility.AccessibilityManagerCompat$AccessibilityStateChangeListenerWrapper
 io.flutter.embedding.engine.systemchannels.LocalizationChannel:
     private static final java.lang.String TAG
@@ -15061,5 +15061,5 @@ androidx.work.impl.model.SystemIdInfoDao_Impl$2:
     final synthetic androidx.work.impl.model.SystemIdInfoDao_Impl this$0
 androidx.core.view.ViewCompat$AccessibilityViewProperty:
     private final int mContentChangeType
-androidx.lifecycle.DefaultLifecycleObserver$-CC
 io.flutter.plugin.platform.PlatformView$-CC
+androidx.lifecycle.DefaultLifecycleObserver$-CC

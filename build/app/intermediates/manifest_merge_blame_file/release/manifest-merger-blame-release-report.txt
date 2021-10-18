@@ -6,9 +6,9 @@
 6
 7    <uses-sdk
 8        android:minSdkVersion="19"
-8-->E:\projects\rentswale\android\app\src\main\AndroidManifest.xml
-9        android:targetSdkVersion="29" />
-9-->E:\projects\rentswale\android\app\src\main\AndroidManifest.xml
+8-->E:\projects\git backup\rentswale\rentswale\android\app\src\main\AndroidManifest.xml
+9        android:targetSdkVersion="30" />
+9-->E:\projects\git backup\rentswale\rentswale\android\app\src\main\AndroidManifest.xml
 10    <!--
 11         io.flutter.app.FlutterApplication is an android.app.Application that
 12         calls FlutterMain.startInitialization(this); in its onCreate method.
@@ -18,35 +18,35 @@
 16    -->
 17
 18    <uses-permission android:name="android.permission.INTERNET" />
-18-->E:\projects\rentswale\android\app\src\main\AndroidManifest.xml:9:5-83
-18-->E:\projects\rentswale\android\app\src\main\AndroidManifest.xml:9:22-64
+18-->E:\projects\git backup\rentswale\rentswale\android\app\src\main\AndroidManifest.xml:9:5-83
+18-->E:\projects\git backup\rentswale\rentswale\android\app\src\main\AndroidManifest.xml:9:22-64
 19    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
-19-->E:\projects\rentswale\android\app\src\main\AndroidManifest.xml:10:9-95
-19-->E:\projects\rentswale\android\app\src\main\AndroidManifest.xml:10:26-76
+19-->E:\projects\git backup\rentswale\rentswale\android\app\src\main\AndroidManifest.xml:10:9-95
+19-->E:\projects\git backup\rentswale\rentswale\android\app\src\main\AndroidManifest.xml:10:26-76
 20    <uses-permission android:name="android.permission.INTERNET" />
-20-->E:\projects\rentswale\android\app\src\main\AndroidManifest.xml:9:5-83
-20-->E:\projects\rentswale\android\app\src\main\AndroidManifest.xml:9:22-64
+20-->E:\projects\git backup\rentswale\rentswale\android\app\src\main\AndroidManifest.xml:9:5-83
+20-->E:\projects\git backup\rentswale\rentswale\android\app\src\main\AndroidManifest.xml:9:22-64
 21    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
-21-->E:\projects\rentswale\android\app\src\main\AndroidManifest.xml:12:5-80
-21-->E:\projects\rentswale\android\app\src\main\AndroidManifest.xml:12:22-78
+21-->E:\projects\git backup\rentswale\rentswale\android\app\src\main\AndroidManifest.xml:12:5-80
+21-->E:\projects\git backup\rentswale\rentswale\android\app\src\main\AndroidManifest.xml:12:22-78
 22    <uses-permission android:name="android.permission.VIBRATE" />
-22-->E:\projects\rentswale\android\app\src\main\AndroidManifest.xml:13:5-66
-22-->E:\projects\rentswale\android\app\src\main\AndroidManifest.xml:13:22-63
+22-->E:\projects\git backup\rentswale\rentswale\android\app\src\main\AndroidManifest.xml:13:5-66
+22-->E:\projects\git backup\rentswale\rentswale\android\app\src\main\AndroidManifest.xml:13:22-63
 23    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-23-->[:file_picker] E:\projects\rentswale\build\file_picker\intermediates\library_manifest\release\AndroidManifest.xml:7:5-80
-23-->[:file_picker] E:\projects\rentswale\build\file_picker\intermediates\library_manifest\release\AndroidManifest.xml:7:22-77
+23-->[:file_picker] E:\projects\git backup\rentswale\rentswale\build\file_picker\intermediates\library_manifest\release\AndroidManifest.xml:7:5-80
+23-->[:file_picker] E:\projects\git backup\rentswale\rentswale\build\file_picker\intermediates\library_manifest\release\AndroidManifest.xml:7:22-77
 24
 25    <queries>
-25-->[:file_picker] E:\projects\rentswale\build\file_picker\intermediates\library_manifest\release\AndroidManifest.xml:9:5-15:15
+25-->[:file_picker] E:\projects\git backup\rentswale\rentswale\build\file_picker\intermediates\library_manifest\release\AndroidManifest.xml:9:5-15:15
 26        <intent>
-26-->[:file_picker] E:\projects\rentswale\build\file_picker\intermediates\library_manifest\release\AndroidManifest.xml:10:9-14:18
+26-->[:file_picker] E:\projects\git backup\rentswale\rentswale\build\file_picker\intermediates\library_manifest\release\AndroidManifest.xml:10:9-14:18
 27            <action android:name="android.intent.action.GET_CONTENT" />
-27-->[:file_picker] E:\projects\rentswale\build\file_picker\intermediates\library_manifest\release\AndroidManifest.xml:11:13-72
-27-->[:file_picker] E:\projects\rentswale\build\file_picker\intermediates\library_manifest\release\AndroidManifest.xml:11:21-69
+27-->[:file_picker] E:\projects\git backup\rentswale\rentswale\build\file_picker\intermediates\library_manifest\release\AndroidManifest.xml:11:13-72
+27-->[:file_picker] E:\projects\git backup\rentswale\rentswale\build\file_picker\intermediates\library_manifest\release\AndroidManifest.xml:11:21-69
 28
 29            <data android:mimeType="*/*" />
-29-->[:file_picker] E:\projects\rentswale\build\file_picker\intermediates\library_manifest\release\AndroidManifest.xml:13:13-44
-29-->[:file_picker] E:\projects\rentswale\build\file_picker\intermediates\library_manifest\release\AndroidManifest.xml:13:19-41
+29-->[:file_picker] E:\projects\git backup\rentswale\rentswale\build\file_picker\intermediates\library_manifest\release\AndroidManifest.xml:13:13-44
+29-->[:file_picker] E:\projects\git backup\rentswale\rentswale\build\file_picker\intermediates\library_manifest\release\AndroidManifest.xml:13:19-41
 30        </intent>
 31    </queries>
 32
@@ -65,33 +65,33 @@
 38-->[com.google.android.gms:play-services-maps:17.0.0] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\ded668fd95b505b1f809aa24733e053c\jetified-play-services-maps-17.0.0\AndroidManifest.xml:28:9-32
 39
 40    <application
-40-->E:\projects\rentswale\android\app\src\main\AndroidManifest.xml:15:5-77:19
+40-->E:\projects\git backup\rentswale\rentswale\android\app\src\main\AndroidManifest.xml:15:5-77:19
 41        android:name="io.flutter.app.FlutterApplication"
-41-->E:\projects\rentswale\android\app\src\main\AndroidManifest.xml:16:9-57
+41-->E:\projects\git backup\rentswale\rentswale\android\app\src\main\AndroidManifest.xml:16:9-57
 42        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
 42-->[androidx.core:core:1.2.0-alpha04] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\c7381266eb9872bb1fdbae4b6896d5be\core-1.2.0-alpha04\AndroidManifest.xml:24:18-86
 43        android:icon="@mipmap/ic_launcher"
-43-->E:\projects\rentswale\android\app\src\main\AndroidManifest.xml:20:9-43
+43-->E:\projects\git backup\rentswale\rentswale\android\app\src\main\AndroidManifest.xml:20:9-43
 44        android:label="Rentswale"
-44-->E:\projects\rentswale\android\app\src\main\AndroidManifest.xml:17:9-34
+44-->E:\projects\git backup\rentswale\rentswale\android\app\src\main\AndroidManifest.xml:17:9-34
 45        android:requestLegacyExternalStorage="true"
-45-->E:\projects\rentswale\android\app\src\main\AndroidManifest.xml:18:9-52
+45-->E:\projects\git backup\rentswale\rentswale\android\app\src\main\AndroidManifest.xml:18:9-52
 46        android:usesCleartextTraffic="true" >
-46-->E:\projects\rentswale\android\app\src\main\AndroidManifest.xml:19:9-44
+46-->E:\projects\git backup\rentswale\rentswale\android\app\src\main\AndroidManifest.xml:19:9-44
 47        <activity
-47-->E:\projects\rentswale\android\app\src\main\AndroidManifest.xml:21:9-49:20
+47-->E:\projects\git backup\rentswale\rentswale\android\app\src\main\AndroidManifest.xml:21:9-49:20
 48            android:name="com.softhub.rentswale.MainActivity"
-48-->E:\projects\rentswale\android\app\src\main\AndroidManifest.xml:22:13-41
+48-->E:\projects\git backup\rentswale\rentswale\android\app\src\main\AndroidManifest.xml:22:13-41
 49            android:configChanges="orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"
-49-->E:\projects\rentswale\android\app\src\main\AndroidManifest.xml:25:13-163
+49-->E:\projects\git backup\rentswale\rentswale\android\app\src\main\AndroidManifest.xml:25:13-163
 50            android:hardwareAccelerated="true"
-50-->E:\projects\rentswale\android\app\src\main\AndroidManifest.xml:26:13-47
+50-->E:\projects\git backup\rentswale\rentswale\android\app\src\main\AndroidManifest.xml:26:13-47
 51            android:launchMode="singleTop"
-51-->E:\projects\rentswale\android\app\src\main\AndroidManifest.xml:23:13-43
+51-->E:\projects\git backup\rentswale\rentswale\android\app\src\main\AndroidManifest.xml:23:13-43
 52            android:theme="@style/LaunchTheme"
-52-->E:\projects\rentswale\android\app\src\main\AndroidManifest.xml:24:13-47
+52-->E:\projects\git backup\rentswale\rentswale\android\app\src\main\AndroidManifest.xml:24:13-47
 53            android:windowSoftInputMode="adjustResize" >
-53-->E:\projects\rentswale\android\app\src\main\AndroidManifest.xml:27:13-55
+53-->E:\projects\git backup\rentswale\rentswale\android\app\src\main\AndroidManifest.xml:27:13-55
 54
 55            <!--
 56                 Specifies an Android theme to apply to this Activity as soon as
@@ -100,11 +100,11 @@
 59                 to determine the Window background behind the Flutter UI.
 60            -->
 61            <meta-data
-61-->E:\projects\rentswale\android\app\src\main\AndroidManifest.xml:32:13-35:17
+61-->E:\projects\git backup\rentswale\rentswale\android\app\src\main\AndroidManifest.xml:32:13-35:17
 62                android:name="io.flutter.embedding.android.NormalTheme"
-62-->E:\projects\rentswale\android\app\src\main\AndroidManifest.xml:33:15-70
+62-->E:\projects\git backup\rentswale\rentswale\android\app\src\main\AndroidManifest.xml:33:15-70
 63                android:resource="@style/NormalTheme" />
-63-->E:\projects\rentswale\android\app\src\main\AndroidManifest.xml:34:15-52
+63-->E:\projects\git backup\rentswale\rentswale\android\app\src\main\AndroidManifest.xml:34:15-52
 64            <!--
 65                 Displays an Android View that continues showing the launch screen
 66                 Drawable until Flutter paints its first frame, then this splash
@@ -113,21 +113,21 @@
 69                 Flutter's first frame.
 70            -->
 71            <meta-data
-71-->E:\projects\rentswale\android\app\src\main\AndroidManifest.xml:41:13-44:17
+71-->E:\projects\git backup\rentswale\rentswale\android\app\src\main\AndroidManifest.xml:41:13-44:17
 72                android:name="io.flutter.embedding.android.SplashScreenDrawable"
-72-->E:\projects\rentswale\android\app\src\main\AndroidManifest.xml:42:15-79
+72-->E:\projects\git backup\rentswale\rentswale\android\app\src\main\AndroidManifest.xml:42:15-79
 73                android:resource="@drawable/launch_background" />
-73-->E:\projects\rentswale\android\app\src\main\AndroidManifest.xml:43:15-61
+73-->E:\projects\git backup\rentswale\rentswale\android\app\src\main\AndroidManifest.xml:43:15-61
 74
 75            <intent-filter>
-75-->E:\projects\rentswale\android\app\src\main\AndroidManifest.xml:45:13-48:29
+75-->E:\projects\git backup\rentswale\rentswale\android\app\src\main\AndroidManifest.xml:45:13-48:29
 76                <action android:name="android.intent.action.MAIN" />
-76-->E:\projects\rentswale\android\app\src\main\AndroidManifest.xml:46:17-68
-76-->E:\projects\rentswale\android\app\src\main\AndroidManifest.xml:46:25-66
+76-->E:\projects\git backup\rentswale\rentswale\android\app\src\main\AndroidManifest.xml:46:17-68
+76-->E:\projects\git backup\rentswale\rentswale\android\app\src\main\AndroidManifest.xml:46:25-66
 77
 78                <category android:name="android.intent.category.LAUNCHER" />
-78-->E:\projects\rentswale\android\app\src\main\AndroidManifest.xml:47:17-76
-78-->E:\projects\rentswale\android\app\src\main\AndroidManifest.xml:47:27-74
+78-->E:\projects\git backup\rentswale\rentswale\android\app\src\main\AndroidManifest.xml:47:17-76
+78-->E:\projects\git backup\rentswale\rentswale\android\app\src\main\AndroidManifest.xml:47:27-74
 79            </intent-filter>
 80        </activity>
 81        <!--
@@ -137,103 +137,103 @@
 85
 86        <provider
 87            android:name="androidx.work.impl.WorkManagerInitializer"
-87-->E:\projects\rentswale\android\app\src\main\AndroidManifest.xml:54:13-69
+87-->E:\projects\git backup\rentswale\rentswale\android\app\src\main\AndroidManifest.xml:54:13-69
 88            android:authorities="com.softhub.rentswale.workmanager-init"
-88-->E:\projects\rentswale\android\app\src\main\AndroidManifest.xml:55:13-68
+88-->E:\projects\git backup\rentswale\rentswale\android\app\src\main\AndroidManifest.xml:55:13-68
 89            android:directBootAware="false"
 89-->[androidx.work:work-runtime:2.2.0] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\d42513d9fab4be77b590df019f12c4ed\work-runtime-2.2.0\AndroidManifest.xml:33:13-44
 90            android:enabled="false"
-90-->E:\projects\rentswale\android\app\src\main\AndroidManifest.xml:56:13-36
+90-->E:\projects\git backup\rentswale\rentswale\android\app\src\main\AndroidManifest.xml:56:13-36
 91            android:exported="false"
-91-->E:\projects\rentswale\android\app\src\main\AndroidManifest.xml:57:13-37
+91-->E:\projects\git backup\rentswale\rentswale\android\app\src\main\AndroidManifest.xml:57:13-37
 92            android:multiprocess="true" />
 92-->[androidx.work:work-runtime:2.2.0] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\d42513d9fab4be77b590df019f12c4ed\work-runtime-2.2.0\AndroidManifest.xml:35:13-40
 93        <provider
 94            android:name="com.bluechilli.flutteruploader.FlutterUploaderInitializer"
-94-->E:\projects\rentswale\android\app\src\main\AndroidManifest.xml:60:13-85
+94-->E:\projects\git backup\rentswale\rentswale\android\app\src\main\AndroidManifest.xml:60:13-85
 95            android:authorities="com.softhub.rentswale.flutter-upload-init"
-95-->E:\projects\rentswale\android\app\src\main\AndroidManifest.xml:61:13-71
+95-->E:\projects\git backup\rentswale\rentswale\android\app\src\main\AndroidManifest.xml:61:13-71
 96            android:exported="false" >
-96-->E:\projects\rentswale\android\app\src\main\AndroidManifest.xml:62:13-37
+96-->E:\projects\git backup\rentswale\rentswale\android\app\src\main\AndroidManifest.xml:62:13-37
 97
 98            <!-- changes this number to configure the maximum number of concurrent tasks -->
 99            <meta-data
-99-->E:\projects\rentswale\android\app\src\main\AndroidManifest.xml:64:13-66:37
+99-->E:\projects\git backup\rentswale\rentswale\android\app\src\main\AndroidManifest.xml:64:13-66:37
 100                android:name="com.bluechilli.flutterupload.MAX_CONCURRENT_TASKS"
-100-->E:\projects\rentswale\android\app\src\main\AndroidManifest.xml:65:17-81
+100-->E:\projects\git backup\rentswale\rentswale\android\app\src\main\AndroidManifest.xml:65:17-81
 101                android:value="3" />
-101-->E:\projects\rentswale\android\app\src\main\AndroidManifest.xml:66:17-34
+101-->E:\projects\git backup\rentswale\rentswale\android\app\src\main\AndroidManifest.xml:66:17-34
 102
 103            <!-- changes this number to configure connection timeout for the upload http request -->
 104            <meta-data
-104-->E:\projects\rentswale\android\app\src\main\AndroidManifest.xml:69:13-130
+104-->E:\projects\git backup\rentswale\rentswale\android\app\src\main\AndroidManifest.xml:69:13-130
 105                android:name="com.bluechilli.flutteruploader.UPLOAD_CONNECTION_TIMEOUT_IN_SECONDS"
-105-->E:\projects\rentswale\android\app\src\main\AndroidManifest.xml:69:24-106
+105-->E:\projects\git backup\rentswale\rentswale\android\app\src\main\AndroidManifest.xml:69:24-106
 106                android:value="4000" />
-106-->E:\projects\rentswale\android\app\src\main\AndroidManifest.xml:69:107-127
+106-->E:\projects\git backup\rentswale\rentswale\android\app\src\main\AndroidManifest.xml:69:107-127
 107        </provider>
 108
 109        <meta-data
-109-->E:\projects\rentswale\android\app\src\main\AndroidManifest.xml:73:9-75:33
+109-->E:\projects\git backup\rentswale\rentswale\android\app\src\main\AndroidManifest.xml:73:9-75:33
 110            android:name="flutterEmbedding"
-110-->E:\projects\rentswale\android\app\src\main\AndroidManifest.xml:74:13-44
+110-->E:\projects\git backup\rentswale\rentswale\android\app\src\main\AndroidManifest.xml:74:13-44
 111            android:value="2" />
-111-->E:\projects\rentswale\android\app\src\main\AndroidManifest.xml:75:13-30
+111-->E:\projects\git backup\rentswale\rentswale\android\app\src\main\AndroidManifest.xml:75:13-30
 112        <meta-data
-112-->[:pay_android] E:\projects\rentswale\build\pay_android\intermediates\library_manifest\release\AndroidManifest.xml:12:9-14:36
+112-->[:pay_android] E:\projects\git backup\rentswale\rentswale\build\pay_android\intermediates\library_manifest\release\AndroidManifest.xml:12:9-14:36
 113            android:name="com.google.android.gms.wallet.api.enabled"
-113-->[:pay_android] E:\projects\rentswale\build\pay_android\intermediates\library_manifest\release\AndroidManifest.xml:13:13-69
+113-->[:pay_android] E:\projects\git backup\rentswale\rentswale\build\pay_android\intermediates\library_manifest\release\AndroidManifest.xml:13:13-69
 114            android:value="true" />
-114-->[:pay_android] E:\projects\rentswale\build\pay_android\intermediates\library_manifest\release\AndroidManifest.xml:14:13-33
+114-->[:pay_android] E:\projects\git backup\rentswale\rentswale\build\pay_android\intermediates\library_manifest\release\AndroidManifest.xml:14:13-33
 115
 116        <provider
-116-->[:image_picker] E:\projects\rentswale\build\image_picker\intermediates\library_manifest\release\AndroidManifest.xml:8:9-16:20
+116-->[:image_picker] E:\projects\git backup\rentswale\rentswale\build\image_picker\intermediates\library_manifest\release\AndroidManifest.xml:8:9-16:20
 117            android:name="io.flutter.plugins.imagepicker.ImagePickerFileProvider"
-117-->[:image_picker] E:\projects\rentswale\build\image_picker\intermediates\library_manifest\release\AndroidManifest.xml:9:13-82
+117-->[:image_picker] E:\projects\git backup\rentswale\rentswale\build\image_picker\intermediates\library_manifest\release\AndroidManifest.xml:9:13-82
 118            android:authorities="com.softhub.rentswale.flutter.image_provider"
-118-->[:image_picker] E:\projects\rentswale\build\image_picker\intermediates\library_manifest\release\AndroidManifest.xml:10:13-74
+118-->[:image_picker] E:\projects\git backup\rentswale\rentswale\build\image_picker\intermediates\library_manifest\release\AndroidManifest.xml:10:13-74
 119            android:exported="false"
-119-->[:image_picker] E:\projects\rentswale\build\image_picker\intermediates\library_manifest\release\AndroidManifest.xml:11:13-37
+119-->[:image_picker] E:\projects\git backup\rentswale\rentswale\build\image_picker\intermediates\library_manifest\release\AndroidManifest.xml:11:13-37
 120            android:grantUriPermissions="true" >
-120-->[:image_picker] E:\projects\rentswale\build\image_picker\intermediates\library_manifest\release\AndroidManifest.xml:12:13-47
+120-->[:image_picker] E:\projects\git backup\rentswale\rentswale\build\image_picker\intermediates\library_manifest\release\AndroidManifest.xml:12:13-47
 121            <meta-data
-121-->[:image_picker] E:\projects\rentswale\build\image_picker\intermediates\library_manifest\release\AndroidManifest.xml:13:13-15:75
+121-->[:image_picker] E:\projects\git backup\rentswale\rentswale\build\image_picker\intermediates\library_manifest\release\AndroidManifest.xml:13:13-15:75
 122                android:name="android.support.FILE_PROVIDER_PATHS"
-122-->[:image_picker] E:\projects\rentswale\build\image_picker\intermediates\library_manifest\release\AndroidManifest.xml:14:17-67
+122-->[:image_picker] E:\projects\git backup\rentswale\rentswale\build\image_picker\intermediates\library_manifest\release\AndroidManifest.xml:14:17-67
 123                android:resource="@xml/flutter_image_picker_file_paths" />
-123-->[:image_picker] E:\projects\rentswale\build\image_picker\intermediates\library_manifest\release\AndroidManifest.xml:15:17-72
+123-->[:image_picker] E:\projects\git backup\rentswale\rentswale\build\image_picker\intermediates\library_manifest\release\AndroidManifest.xml:15:17-72
 124        </provider>
 125
 126        <activity
-126-->[:razorpay_flutter] E:\projects\rentswale\build\razorpay_flutter\intermediates\library_manifest\release\AndroidManifest.xml:8:9-11:20
+126-->[:razorpay_flutter] E:\projects\git backup\rentswale\rentswale\build\razorpay_flutter\intermediates\library_manifest\release\AndroidManifest.xml:8:9-11:20
 127            android:name="com.razorpay.CheckoutActivity"
-127-->[:razorpay_flutter] E:\projects\rentswale\build\razorpay_flutter\intermediates\library_manifest\release\AndroidManifest.xml:9:13-57
+127-->[:razorpay_flutter] E:\projects\git backup\rentswale\rentswale\build\razorpay_flutter\intermediates\library_manifest\release\AndroidManifest.xml:9:13-57
 128            android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
 128-->[com.razorpay:checkout:1.6.10] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\cd29a179b7c870c868abf36ed01b01a7\jetified-checkout-1.6.10\AndroidManifest.xml:20:13-83
 129            android:label="Razorpay Checkout"
-129-->[:razorpay_flutter] E:\projects\rentswale\build\razorpay_flutter\intermediates\library_manifest\release\AndroidManifest.xml:10:13-46
+129-->[:razorpay_flutter] E:\projects\git backup\rentswale\rentswale\build\razorpay_flutter\intermediates\library_manifest\release\AndroidManifest.xml:10:13-46
 130            android:theme="@style/CheckoutTheme" >
 130-->[com.razorpay:checkout:1.6.10] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\cd29a179b7c870c868abf36ed01b01a7\jetified-checkout-1.6.10\AndroidManifest.xml:21:13-49
 131            <intent-filter>
 131-->[com.razorpay:checkout:1.6.10] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\cd29a179b7c870c868abf36ed01b01a7\jetified-checkout-1.6.10\AndroidManifest.xml:22:13-28:29
 132                <action android:name="android.intent.action.MAIN" />
-132-->E:\projects\rentswale\android\app\src\main\AndroidManifest.xml:46:17-68
-132-->E:\projects\rentswale\android\app\src\main\AndroidManifest.xml:46:25-66
+132-->E:\projects\git backup\rentswale\rentswale\android\app\src\main\AndroidManifest.xml:46:17-68
+132-->E:\projects\git backup\rentswale\rentswale\android\app\src\main\AndroidManifest.xml:46:25-66
 133
 134                <data
-134-->[:file_picker] E:\projects\rentswale\build\file_picker\intermediates\library_manifest\release\AndroidManifest.xml:13:13-44
+134-->[:file_picker] E:\projects\git backup\rentswale\rentswale\build\file_picker\intermediates\library_manifest\release\AndroidManifest.xml:13:13-44
 135                    android:host="rzp.io"
 136                    android:scheme="io.rzp" />
 137            </intent-filter>
 138        </activity>
 139        <activity
-139-->[:url_launcher] E:\projects\rentswale\build\url_launcher\intermediates\library_manifest\release\AndroidManifest.xml:8:9-11:74
+139-->[:url_launcher] E:\projects\git backup\rentswale\rentswale\build\url_launcher\intermediates\library_manifest\release\AndroidManifest.xml:8:9-11:74
 140            android:name="io.flutter.plugins.urllauncher.WebViewActivity"
-140-->[:url_launcher] E:\projects\rentswale\build\url_launcher\intermediates\library_manifest\release\AndroidManifest.xml:9:13-74
+140-->[:url_launcher] E:\projects\git backup\rentswale\rentswale\build\url_launcher\intermediates\library_manifest\release\AndroidManifest.xml:9:13-74
 141            android:exported="false"
-141-->[:url_launcher] E:\projects\rentswale\build\url_launcher\intermediates\library_manifest\release\AndroidManifest.xml:10:13-37
+141-->[:url_launcher] E:\projects\git backup\rentswale\rentswale\build\url_launcher\intermediates\library_manifest\release\AndroidManifest.xml:10:13-37
 142            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
-142-->[:url_launcher] E:\projects\rentswale\build\url_launcher\intermediates\library_manifest\release\AndroidManifest.xml:11:13-71
+142-->[:url_launcher] E:\projects\git backup\rentswale\rentswale\build\url_launcher\intermediates\library_manifest\release\AndroidManifest.xml:11:13-71
 143
 144        <service
 144-->[androidx.work:work-runtime:2.2.0] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\d42513d9fab4be77b590df019f12c4ed\work-runtime-2.2.0\AndroidManifest.xml:38:9-43:35

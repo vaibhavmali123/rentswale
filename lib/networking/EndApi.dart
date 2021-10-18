@@ -10,4 +10,6 @@ class EndApi {
 
   static String allProducts = 'allProducts.php';
   static String kyc = 'kyc.php';
+  static String orderHistory = 'order_history.php';
+  static String offers = 'offer.php';
 }

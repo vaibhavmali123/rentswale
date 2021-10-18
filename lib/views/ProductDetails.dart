@@ -6,6 +6,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
+import 'package:jiffy/jiffy.dart';
 import 'package:rentswale/bloc/ProductDetailsBloc.dart';
 import 'package:rentswale/database/Database.dart';
 import 'package:rentswale/main.dart';
@@ -24,11 +25,14 @@ class ProductDetails extends StatefulWidget {
   ProductDetailsState createState() => ProductDetailsState(data: data);
 }
 
+enum selected { details, terms }
+var selectedValue;
+
 class ProductDetailsState extends State<ProductDetails> {
   ProductList data;
 
   ProductDetailsState({this.data});
-
+  var myFormat = DateFormat('yyyy-MM-dd');
   int indexChecked = 0;
   List<dynamic> list = ['1 Day', '1 Month', '3 Month', '6 Month', '12 Months'];
   double currentValue = 1.0;
@@ -37,6 +41,7 @@ class ProductDetailsState extends State<ProductDetails> {
   String fromdate, todate;
   TextEditingController depositEditingCtrl;
   String total;
+  String netPrice;
   int itemPrice;
   AsyncSnapshot<List<ProductDescription>> snapshotGlobal;
 
@@ -211,7 +216,7 @@ class ProductDetailsState extends State<ProductDetails> {
                     max: 12,
                     min: 1,
                     mouseCursor: MouseCursor.defer,
-                    label: getCurrentValue(currentValue != null ? currentValue : 1),
+                    label: getCurrentValue(currentValue != null ? currentValue : 1, snapshot),
                     value: currentValue.toDouble(),
                     onChanged: (value) {
                       setState(() {
@@ -382,7 +387,10 @@ class ProductDetailsState extends State<ProductDetails> {
                 ),
                 GestureDetector(
                   onTap: () {
-                    toDate();
+                    print("DDDDD ${currentValue}");
+                    if (currentValue == 1.0) {
+                      toDate();
+                    }
                   },
                   child: Container(
                     width: MediaQuery.of(context).size.width / 2.6,
@@ -408,7 +416,45 @@ class ProductDetailsState extends State<ProductDetails> {
                 )
               ],
             ),
-            TabBar(labelColor: Colors.black87, labelStyle: TextStyle(fontSize: 14, fontWeight: FontWeight.w800, color: Colors.black87), tabs: [
+            SizedBox(
+              height: 20,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                GestureDetector(
+                  child: Text(
+                    'Details',
+                    style: TextStyle(fontSize: 14, fontWeight: FontWeight.w800, color: selectedValue != selected.details ? Colors.black87 : color.primaryColor),
+                  ),
+                  onTap: () {
+                    setState(() {
+                      selectedValue = selected.details;
+                    });
+                  },
+                ),
+                GestureDetector(
+                  onTap: () {
+                    setState(() {
+                      selectedValue = selected.terms;
+                    });
+                  },
+                  child: Text(
+                    'Terms',
+                    style: TextStyle(fontSize: 14, fontWeight: FontWeight.w800, color: selectedValue != selected.terms ? Colors.black87 : color.primaryColor),
+                  ),
+                )
+              ],
+            ),
+            Padding(
+              padding: EdgeInsets.only(left: 14, right: 14, top: 12),
+              child: Text(
+                snapshot.data[0].termSpecification,
+                style: GoogleFonts.poppins(fontSize: 14, color: Colors.black87.withOpacity(0.8), fontWeight: FontWeight.w500),
+              ),
+            )
+
+            /*TabBar(labelColor: Colors.black87, labelStyle: TextStyle(fontSize: 14, fontWeight: FontWeight.w800, color: Colors.black87), tabs: [
               Tab(
                 text: 'Details',
               ),
@@ -436,71 +482,108 @@ class ProductDetailsState extends State<ProductDetails> {
                   ),
                 )
               ]),
-            )
+            )*/
           ],
         ));
   }
 
   String getTotal(AsyncSnapshot<List<ProductDescription>> snapshot) {
     itemPrice = int.parse(snapshot.data[0].price);
+
     switch (duration) {
       case "1 Day":
         if (todate != null) {
-          itemPrice = quantity * itemPrice * DateTime.parse(todate).difference(DateTime.parse(fromdate)).inDays;
+          netPrice = snapshot.data[0].price;
+          print("DIFFRENCE DDD ${DateTime.parse(myFormat.format(DateTime.parse(todate))).difference(DateTime.parse(myFormat.format(DateTime.parse(fromdate)))).inDays}");
+          itemPrice = quantity * itemPrice * DateTime.parse(myFormat.format(DateTime.parse(todate).add(Duration(days: 1)))).difference(DateTime.parse(myFormat.format(DateTime.parse(fromdate)))).inDays;
         } else {
           itemPrice = quantity * int.parse(snapshot.data[0].price);
         }
         return itemPrice.toString();
         break;
       case "1 Month":
+        print("DURATION D ${duration}");
+        netPrice = snapshot.data[0].priceMonth;
         return (quantity * int.parse(snapshot.data[0].priceMonth)).toString();
         break;
       case "3 Months":
+        print("DURATION D  ${duration}");
+        netPrice = snapshot.data[0].priceThree;
         return (quantity * int.parse(snapshot.data[0].priceThree)).toString();
         break;
       case "6 Months":
+        netPrice = snapshot.data[0].priceSix;
         return (quantity * int.parse(snapshot.data[0].priceSix)).toString();
         break;
       case "9 Months":
         if (snapshot.data[0].priceNine != "") {
+          netPrice = snapshot.data[0].priceNine;
           return (quantity * int.parse(snapshot.data[0].priceNine)).toString();
         }
         break;
 
       case "12 Months":
         if (snapshot.data[0].priceTwel != "") {
+          netPrice = snapshot.data[0].priceTwel;
           return (quantity * int.parse(snapshot.data[0].priceTwel)).toString();
         }
         break;
     }
   }
 
-  getCurrentValue(double currentValue) {
-    print("VVVVV ${currentValue.round().toString()}");
+  getCurrentValue(double currentValue, AsyncSnapshot<List<ProductDescription>> snapshot) {
+    print("CURRENT VALUE RANGE ${currentValue.round().toString()} ${itemPrice} ${duration}");
     switch (currentValue.round()) {
       case 1:
         duration = "1 Day";
+        fromdate = myFormat.format(DateTime.now()).toString();
+        todate = myFormat.format(Jiffy().add(days: 1).dateTime).toString();
+        netPrice = snapshot.data[0].price;
+        itemPrice = quantity * int.parse(snapshot.data[0].price);
         return currentValue.round().toString() + ' Day';
         break;
+
       case 3:
         duration = "1 Month";
+        netPrice = snapshot.data[0].priceMonth;
+        fromdate = myFormat.format(DateTime.now()).toString();
+        todate = myFormat.format(Jiffy().add(months: 1).dateTime).toString();
+        itemPrice = quantity * int.parse(snapshot.data[0].priceMonth);
         return '1 Month';
         break;
       case 5:
         duration = "3 Months";
+        netPrice = snapshot.data[0].priceThree;
+        fromdate = myFormat.format(DateTime.now()).toString();
+        todate = myFormat.format(Jiffy().add(months: 3).dateTime).toString();
+        itemPrice = quantity * int.parse(snapshot.data[0].priceThree);
         return '3 Months';
         break;
 
       case 8:
         duration = "6 Months";
+        netPrice = snapshot.data[0].priceSix;
+        fromdate = myFormat.format(DateTime.now()).toString();
+        todate = myFormat.format(Jiffy().add(months: 6).dateTime).toString();
+        itemPrice = quantity * int.parse(snapshot.data[0].priceSix);
+
         return '6 Months';
         break;
       case 10:
         duration = "9 Months";
+        netPrice = snapshot.data[0].priceNine;
+        itemPrice = quantity * int.parse(snapshot.data[0].priceNine);
+        fromdate = myFormat.format(DateTime.now()).toString();
+        todate = myFormat.format(Jiffy().add(months: 9).dateTime).toString();
         return '9 Months';
         break;
       case 12:
         duration = "12 Months";
+        netPrice = snapshot.data[0].priceTwel;
+        itemPrice = quantity * int.parse(snapshot.data[0].priceTwel);
+        fromdate = myFormat.format(DateTime.now()).toString();
+        todate = myFormat.format(Jiffy().add(months: 12).dateTime).toString();
+
         print("TOTTTAL ${total}");
         return '12 Months';
         break;
@@ -559,7 +642,7 @@ class ProductDetailsState extends State<ProductDetails> {
         context: context,
         initialDate: tempDateTime,
         firstDate: tempDateTime,
-        lastDate: DateTime(2101),
+        lastDate: tempDateTime.add(Duration(days: 29)),
         builder: (BuildContext context, Widget child) {
           return Theme(
             data: ThemeData.light().copyWith(
@@ -591,11 +674,12 @@ class ProductDetailsState extends State<ProductDetails> {
             builder: (context, AsyncSnapshot<List<ProductDescription>> snapshot) {
               snapshotGlobal = snapshot;
               if (snapshot.hasData) {
-                duration = "1 Day";
+                //duration = "1 Day";
+                duration = "1 Day" ?? getTotal(snapshot);
                 print("DIFF DUR ${duration}");
                 return Padding(
                   padding: EdgeInsets.only(left: 20),
-                  child: Text('Price: ₹' + getTotal(snapshot), style: GoogleFonts.poppins(fontSize: 16, color: Colors.white, fontWeight: FontWeight.w600)),
+                  child: Text('Price: ₹' + itemPrice.toString(), style: GoogleFonts.poppins(fontSize: 16, color: Colors.white, fontWeight: FontWeight.w600)),
                 );
               } else if (snapshot.hasData == false) {
                 return Utils.loader;
@@ -656,7 +740,8 @@ class ProductDetailsState extends State<ProductDetails> {
 
     mapCart['productName'] = data.itemName;
 
-    mapCart['price'] = data.price;
+    mapCart['total_price'] = itemPrice.toString();
+    mapCart['price'] = netPrice;
     mapCart['quantity'] = quantity;
     mapCart['duration'] = duration;
     mapCart['image'] = data.itemImg;

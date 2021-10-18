@@ -1,4 +1,4 @@
-# The proguard configuration file for the following section is E:\projects\rentswale\build\app\intermediates\proguard-files\proguard-android.txt-4.1.1
+# The proguard configuration file for the following section is E:\projects\git backup\rentswale\rentswale\build\app\intermediates\proguard-files\proguard-android.txt-4.1.1
 # This is a configuration file for ProGuard.
 # http://proguard.sourceforge.net/index.html#manual/usage.html
 #
@@ -110,7 +110,7 @@
 # These classes are duplicated between android.jar and core-lambda-stubs.jar.
 -dontnote java.lang.invoke.**
 
-# End of content from E:\projects\rentswale\build\app\intermediates\proguard-files\proguard-android.txt-4.1.1
+# End of content from E:\projects\git backup\rentswale\rentswale\build\app\intermediates\proguard-files\proguard-android.txt-4.1.1
 # The proguard configuration file for the following section is E:\SDK\latest\flutter\packages\flutter_tools\gradle\flutter_proguard_rules.pro
 # Build the ephemeral app in a module project.
 # Prevents: Warning: library class <plugin-package> depends on program class io.flutter.plugin.**
@@ -121,7 +121,7 @@
 -dontwarn android.**
 
 # End of content from E:\SDK\latest\flutter\packages\flutter_tools\gradle\flutter_proguard_rules.pro
-# The proguard configuration file for the following section is E:\projects\rentswale\build\app\intermediates\aapt_proguard_file\release\aapt_rules.txt
+# The proguard configuration file for the following section is E:\projects\git backup\rentswale\rentswale\build\app\intermediates\aapt_proguard_file\release\aapt_rules.txt
 -keep class androidx.core.app.CoreComponentFactory { <init>(); }
 -keep class androidx.room.MultiInstanceInvalidationService { <init>(); }
 -keep class androidx.work.impl.WorkManagerInitializer { <init>(); }
@@ -147,8 +147,8 @@
 -keep class com.razorpay.CircularProgressView { <init>(android.content.Context, android.util.AttributeSet); }
 
 
-# End of content from E:\projects\rentswale\build\app\intermediates\aapt_proguard_file\release\aapt_rules.txt
-# The proguard configuration file for the following section is E:\projects\rentswale\build\flutter_plugin_android_lifecycle\intermediates\consumer_proguard_dir\release\lib0\proguard.txt
+# End of content from E:\projects\git backup\rentswale\rentswale\build\app\intermediates\aapt_proguard_file\release\aapt_rules.txt
+# The proguard configuration file for the following section is E:\projects\git backup\rentswale\rentswale\build\flutter_plugin_android_lifecycle\intermediates\consumer_proguard_dir\release\lib0\proguard.txt
 # The point of this package is to specify that a dependent plugin intends to
 # use the AndroidX lifecycle classes. Make sure no R8 heuristics shrink classes
 # brought in by the embedding's pom.
@@ -159,7 +159,7 @@
 # https://issuetracker.google.com/issues/142778206.
 -keep class androidx.lifecycle.DefaultLifecycleObserver
 
-# End of content from E:\projects\rentswale\build\flutter_plugin_android_lifecycle\intermediates\consumer_proguard_dir\release\lib0\proguard.txt
+# End of content from E:\projects\git backup\rentswale\rentswale\build\flutter_plugin_android_lifecycle\intermediates\consumer_proguard_dir\release\lib0\proguard.txt
 # The proguard configuration file for the following section is C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\d42513d9fab4be77b590df019f12c4ed\work-runtime-2.2.0\proguard.txt
 -keep class * extends androidx.work.Worker
 -keep class * extends androidx.work.InputMerger

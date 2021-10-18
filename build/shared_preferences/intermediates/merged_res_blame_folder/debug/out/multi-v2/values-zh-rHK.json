@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "E:\\projects\\rentswale\\build\\shared_preferences\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-zh-rHK\\values-zh-rHK.xml",
+            "outputFile": "E:\\projects\\git backup\\rentswale\\rentswale\\build\\shared_preferences\\intermediates\\res\\merged\\debug\\values-zh-rHK\\values-zh-rHK.xml",
             "map": [
                 {
                     "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-2\\files-2.1\\dedc580d70cb626931f368f031b4e88d\\core-1.1.0\\res\\values-zh-rHK\\values-zh-rHK.xml",
@@ -16,7 +16,7 @@
             ]
         },
         {
-            "outputFile": "E:\\projects\\rentswale\\build\\shared_preferences\\intermediates\\res\\merged\\debug\\values-zh-rHK\\values-zh-rHK.xml",
+            "outputFile": "E:\\projects\\git backup\\rentswale\\rentswale\\build\\shared_preferences\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-zh-rHK\\values-zh-rHK.xml",
             "map": [
                 {
                     "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-2\\files-2.1\\dedc580d70cb626931f368f031b4e88d\\core-1.1.0\\res\\values-zh-rHK\\values-zh-rHK.xml",

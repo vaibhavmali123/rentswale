@@ -12,6 +12,7 @@ import 'package:rentswale/utils/utils.dart';
 import 'package:rentswale/views/Dashboard.dart';
 import 'package:rentswale/views/KycPage.dart';
 import 'package:rentswale/views/LoginPage.dart';
+import 'package:rentswale/views/UpdateProfileScreen.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import 'MyOrders.dart';
@@ -21,16 +22,6 @@ class AccountNav extends StatefulWidget {
 }
 
 class AccountNavState extends State<AccountNav> {
-  List<dynamic> listMenu = [
-    {'title': 'Login/Signup', 'icon': Icons.login},
-    {'title': 'KYC', 'icon': Icons.fingerprint_sharp},
-    {'title': 'Offers & Promotions', 'icon': Icons.label_sharp},
-    {'title': 'My orders', 'icon': Icons.fingerprint_sharp},
-    {'title': 'Contact Us', 'icon': Icons.contact_phone},
-    {'title': 'Read More', 'icon': Icons.chrome_reader_mode_outlined},
-    {'title': 'Logout', 'icon': Icons.logout},
-  ];
-
   String address;
   File fileProfile;
 
@@ -39,16 +30,20 @@ class AccountNavState extends State<AccountNav> {
     // TODO: implement initState
     super.initState();
     Database.initDatabase();
-    Database.getAddres().then((value) {
+
+    address = Database.getAddres();
+    /*Database.getAddres().then((value) {
       setState(() {
         address = value;
       });
-      print("ADDRESS ${value.toString()}");
-    });
+    });*/
   }
 
   @override
   Widget build(BuildContext context) {
+    Database.initDatabase();
+    setState(() {});
+
     return Scaffold(
       body: Container(
           height: MediaQuery.of(context).size.height,
@@ -56,7 +51,7 @@ class AccountNavState extends State<AccountNav> {
           child: Column(
             children: [
               Expanded(
-                flex: 3,
+                flex: 4,
                 child: Container(
                   width: MediaQuery.of(context).size.width,
                   decoration: BoxDecoration(color: Colors.white.withOpacity(0.1), borderRadius: BorderRadius.only(bottomLeft: Radius.circular(12.0), bottomRight: Radius.circular(12.0)), border: Border.all(width: 0.4, color: Colors.black)),
@@ -65,8 +60,36 @@ class AccountNavState extends State<AccountNav> {
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       GestureDetector(
+                        child: Container(
+                          padding: EdgeInsets.only(right: 20),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.end,
+                            children: [
+                              IconButton(
+                                onPressed: () {
+                                  Navigator.push(context, MaterialPageRoute(builder: (context) {
+                                    return UpdateProfileScreen();
+                                  }));
+                                },
+                                icon: Icon(Icons.edit),
+                                color: color.primaryColor,
+                              ),
+                              Text(
+                                'Edit',
+                                style: GoogleFonts.poppins(fontSize: 12, color: color.primaryColor, fontWeight: FontWeight.w800),
+                              )
+                            ],
+                          ),
+                        ),
+                        onTap: () {
+                          Navigator.push(context, MaterialPageRoute(builder: (context) {
+                            return UpdateProfileScreen();
+                          }));
+                        },
+                      ),
+                      GestureDetector(
                         onTap: () async {
-                          await showPicker(context: context);
+                          Database.getUserName() != null ? await showPicker(context: context) : Utils.showMessage(type: false, message: "Please login to upload profile pic");
                         },
                         child: CircleAvatar(
                           radius: 50,
@@ -82,7 +105,7 @@ class AccountNavState extends State<AccountNav> {
                         ),
                       ),
                       Text(
-                        Database.getUserName() != null ? Database.getUserName() : "User name here",
+                        Database.getName() != null ? Database.getName() : "",
                         style: GoogleFonts.poppins(fontSize: 13, fontWeight: FontWeight.w600, height: 1.7, color: Colors.black87),
                       ),
                       Text(
@@ -94,46 +117,139 @@ class AccountNavState extends State<AccountNav> {
                 ),
               ),
               Expanded(
-                flex: 8,
-                child: Container(
-                  color: Colors.grey.shade100,
-                  child: ListView.builder(
-                      itemCount: listMenu.length,
-                      itemBuilder: (context, index) {
-                        return GestureDetector(
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Container(
-                                margin: EdgeInsets.only(top: 10),
-                                decoration: BoxDecoration(
-                                  color: Colors.white,
-                                  borderRadius: BorderRadius.circular(10.0),
+                  flex: 8,
+                  child: Column(
+                    children: [
+                      Database.getUserName() == null
+                          ? Container(
+                              margin: EdgeInsets.only(top: 10),
+                              decoration: BoxDecoration(
+                                color: Colors.white,
+                                borderRadius: BorderRadius.circular(10.0),
+                              ),
+                              height: 55,
+                              width: MediaQuery.of(context).size.width / 1.1,
+                              child: ListTile(
+                                onTap: () {
+                                  Navigator.push(context, MaterialPageRoute(builder: (context) {
+                                    return LoginPage();
+                                  }));
+                                },
+                                title: Text(
+                                  'Login / Signup',
+                                  style: GoogleFonts.poppins(fontSize: 12, color: Colors.black87, fontWeight: FontWeight.w400),
                                 ),
-                                height: 55,
-                                width: MediaQuery.of(context).size.width / 1.1,
-                                child: ListTile(
-                                  onTap: () {
-                                    navigate(index);
-                                  },
-                                  title: Text(
-                                    listMenu[index]["title"],
-                                    style: GoogleFonts.poppins(fontSize: 12, color: Colors.black87, fontWeight: FontWeight.w400),
-                                  ),
-                                  leading: Icon(listMenu[index]['icon']),
-                                  trailing: Icon(Icons.arrow_forward_ios),
-                                ),
-                              )
-                            ],
+                                leading: Icon(Icons.login),
+                                trailing: Icon(Icons.arrow_forward_ios),
+                              ),
+                            )
+                          : Container(),
+                      Container(
+                        margin: EdgeInsets.only(top: 10),
+                        decoration: BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.circular(10.0),
+                        ),
+                        height: 55,
+                        width: MediaQuery.of(context).size.width / 1.1,
+                        child: ListTile(
+                          onTap: () {
+                            Database.getUserName() != null
+                                ? Navigator.push(context, MaterialPageRoute(builder: (context) {
+                                    return KycPage();
+                                  }))
+                                : Utils.showMessage(message: "Please login first", type: false);
+                          },
+                          title: Text(
+                            'KYC',
+                            style: GoogleFonts.poppins(fontSize: 12, color: Colors.black87, fontWeight: FontWeight.w400),
                           ),
-                        );
-                      }),
-                ),
-              )
+                          leading: Icon(Icons.login),
+                          trailing: Icon(Icons.arrow_forward_ios),
+                        ),
+                      ),
+                      Container(
+                        margin: EdgeInsets.only(top: 10),
+                        decoration: BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.circular(10.0),
+                        ),
+                        height: 55,
+                        width: MediaQuery.of(context).size.width / 1.1,
+                        child: ListTile(
+                          onTap: () {
+                            Database.getUserName() != null
+                                ? Navigator.push(context, MaterialPageRoute(builder: (context) {
+                                    return MyOrders();
+                                  }))
+                                : Utils.showMessage(message: "Please login to see orders", type: false);
+                          },
+                          title: Text(
+                            'My orders',
+                            style: GoogleFonts.poppins(fontSize: 12, color: Colors.black87, fontWeight: FontWeight.w400),
+                          ),
+                          leading: Icon(Icons.login),
+                          trailing: Icon(Icons.arrow_forward_ios),
+                        ),
+                      ),
+                      Container(
+                        margin: EdgeInsets.only(top: 10),
+                        decoration: BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.circular(10.0),
+                        ),
+                        height: 55,
+                        width: MediaQuery.of(context).size.width / 1.1,
+                        child: ListTile(
+                          onTap: () {
+                            contactusBottomSheet(context: context);
+                          },
+                          title: Text(
+                            'Contact us',
+                            style: GoogleFonts.poppins(fontSize: 12, color: Colors.black87, fontWeight: FontWeight.w400),
+                          ),
+                          leading: Icon(Icons.chrome_reader_mode_outlined),
+                          trailing: Icon(Icons.arrow_forward_ios),
+                        ),
+                      ),
+                      Database.getUserName() != null
+                          ? Container(
+                              margin: EdgeInsets.only(top: 10),
+                              decoration: BoxDecoration(
+                                color: Colors.white,
+                                borderRadius: BorderRadius.circular(10.0),
+                              ),
+                              height: 55,
+                              width: MediaQuery.of(context).size.width / 1.1,
+                              child: ListTile(
+                                onTap: () {
+                                  showLogoutDialog();
+                                },
+                                title: Text(
+                                  'Logout',
+                                  style: GoogleFonts.poppins(fontSize: 12, color: Colors.black87, fontWeight: FontWeight.w400),
+                                ),
+                                leading: Icon(Icons.logout),
+                                trailing: Icon(Icons.arrow_forward_ios),
+                              ),
+                            )
+                          : Container()
+                    ],
+                  )),
             ],
           )),
     );
   }
+/*
+  List<dynamic> listMenu = [
+    {'title': 'Login/Signup', 'icon': Icons.login},
+    {'title': 'KYC', 'icon': Icons.fingerprint_sharp},
+    {'title': 'My orders', 'icon': Icons.fingerprint_sharp},
+    {'title': 'Contact Us', 'icon': Icons.contact_phone},
+    {'title': 'Read More', 'icon': Icons.chrome_reader_mode_outlined},
+    {'title': 'Logout', 'icon': Icons.logout},
+  ];
+*/
 
   Future<void> showLogoutDialog() async {
     return showDialog<void>(
@@ -169,34 +285,6 @@ class AccountNavState extends State<AccountNav> {
             ],
           );
         });
-  }
-
-  void navigate(int index) {
-    switch (index) {
-      case 0:
-        Navigator.push(context, MaterialPageRoute(builder: (context) {
-          return LoginPage();
-        }));
-        break;
-      case 1:
-        Navigator.push(context, MaterialPageRoute(builder: (context) {
-          return KycPage();
-        }));
-        break;
-      case 4:
-        contactusBottomSheet(context: context);
-        break;
-
-      case 6:
-        showLogoutDialog();
-        break;
-
-      case 3:
-        Navigator.push(context, MaterialPageRoute(builder: (context) {
-          return MyOrders();
-        }));
-        break;
-    }
   }
 
   void contactusBottomSheet({BuildContext context}) async {

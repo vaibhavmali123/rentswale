@@ -3,13 +3,13 @@ import 'package:rentswale/networking/Repository.dart';
 import 'package:rxdart/rxDart.dart';
 
 class ProductListBloc {
-  final productListFetcher = PublishSubject<List<ProductList>>();
+  final productListFetcher = PublishSubject<ProductsListModel>();
 
-  Stream<List<ProductList>> get productListStream => productListFetcher.stream;
+  Stream<ProductsListModel> get productListStream => productListFetcher.stream;
 
   fetchProductsList({String categoryId, String subCategoryId}) async {
-    List<ProductList> listProduct = await Repository.getProductList(categoryId: categoryId, subCategoryId: subCategoryId);
-    productListFetcher.sink.add(listProduct);
+    ProductsListModel productsListModel = await Repository.getProductList(categoryId: categoryId, subCategoryId: subCategoryId);
+    productListFetcher.sink.add(productsListModel);
   }
 }
 

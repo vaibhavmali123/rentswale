@@ -3,12 +3,12 @@ import 'package:rentswale/networking/Repository.dart';
 import 'package:rxdart/rxdart.dart';
 
 class ProductsHomeBloc {
-  final productsHomeFetcher = PublishSubject<List<ProductList>>();
+  final productsHomeFetcher = PublishSubject<ProductsListModel>();
 
-  Stream<List<ProductList>> get productStream => productsHomeFetcher.stream;
+  Stream<ProductsListModel> get productStream => productsHomeFetcher.stream;
 
-  fetchProductsHome() async {
-    List<ProductList> listProduct = await Repository.getProductHome();
+  fetchProductsHome({String address}) async {
+    ProductsListModel listProduct = await Repository.getProductHome(address: address);
     productsHomeFetcher.sink.add(listProduct);
   }
 }

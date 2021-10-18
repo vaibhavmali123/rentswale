@@ -1,14 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:pay/pay.dart';
 import 'package:razorpay_flutter/razorpay_flutter.dart';
 import 'package:rentswale/bloc/PlaceOrderBloc.dart';
 import 'package:rentswale/database/Database.dart';
 import 'package:rentswale/models/PlaceOrderModel.dart';
 import 'package:rentswale/utils/Colors.dart';
 import 'package:rentswale/utils/utils.dart';
-import 'package:rentswale/views/Dashboard.dart';
 import 'package:rentswale/views/KycPage.dart';
+import 'package:rentswale/views/ThankYouPage.dart';
 
 class PlaceOrderScreen extends StatefulWidget {
   List<dynamic> listProducts;
@@ -28,7 +27,7 @@ class PlaceOrderScreenState extends State<PlaceOrderScreen> {
   int taxTotal = 0;
   int rentTotal;
   int totalDeposit = 0, deliveryCharges = 0, totalPayout = 0;
-  TextEditingController addressCtrl;
+  TextEditingController addressCtrl, flatBuildingCtrl, landmarkCtrl, directionCtrl;
   var paymentMethod = 'offline';
   var _razorpay = Razorpay();
 
@@ -37,18 +36,11 @@ class PlaceOrderScreenState extends State<PlaceOrderScreen> {
     // TODO: implement initState
     super.initState();
     getTotalPayment();
-    addressCtrl = TextEditingController();
+    initControllers();
     print("DDDDD ${couponAmount}");
     initPaymentCallbacks();
   }
 
-  var _paymentItems = [
-    PaymentItem(
-      label: 'Total',
-      amount: '200',
-      status: PaymentItemStatus.final_price,
-    )
-  ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -57,21 +49,12 @@ class PlaceOrderScreenState extends State<PlaceOrderScreen> {
           if (addressCtrl.text.length > 0) {
             Database.initDatabase();
             Database.isKycCompleted();
-
-            print("KYC ${Database.isKycCompleted()}");
-            if (Database.isKycCompleted() != null) {
-              if (paymentMethod == 'offline') {
-                placeOrder();
-              } else {
-                openCheckout();
-                // showPaymentSheet(context);
-              }
+            if (paymentMethod == "offline") {
+              placeOrder();
             } else {
-              Utils.showMessage(message: 'Please first complete KYC');
-              Navigator.push(context, MaterialPageRoute(builder: (context) {
-                return KycPage();
-              }));
+              openCheckout();
             }
+            print("KYC ${Database.isKycCompleted()}");
           } else {
             Utils.showMessage(message: 'Please enter address', type: false);
           }
@@ -121,7 +104,40 @@ class PlaceOrderScreenState extends State<PlaceOrderScreen> {
                     ],
                   ),
                   SizedBox(
-                    height: 20,
+                    height: 8,
+                  ),
+                  SizedBox(
+                    width: MediaQuery.of(context).size.width / 1,
+                    height: 50,
+                    child: TextFormField(
+                      controller: flatBuildingCtrl,
+                      decoration: InputDecoration(hintText: "Flat, building flour no", border: OutlineInputBorder(borderSide: BorderSide(width: 1, color: Colors.black54))),
+                    ),
+                  ),
+                  SizedBox(
+                    height: 12,
+                  ),
+                  SizedBox(
+                    width: MediaQuery.of(context).size.width / 1,
+                    height: 50,
+                    child: TextFormField(
+                      controller: landmarkCtrl,
+                      decoration: InputDecoration(hintText: "Landmark, area", border: OutlineInputBorder(borderSide: BorderSide(width: 1, color: Colors.black54))),
+                    ),
+                  ),
+                  SizedBox(
+                    height: 12,
+                  ),
+                  SizedBox(
+                    width: MediaQuery.of(context).size.width / 1,
+                    height: 50,
+                    child: TextFormField(
+                      controller: directionCtrl,
+                      decoration: InputDecoration(hintText: "Direction to reach", border: OutlineInputBorder(borderSide: BorderSide(width: 1, color: Colors.black54))),
+                    ),
+                  ),
+                  SizedBox(
+                    height: 12,
                   ),
                   SizedBox(
                     width: MediaQuery.of(context).size.width / 1,
@@ -314,11 +330,13 @@ class PlaceOrderScreenState extends State<PlaceOrderScreen> {
     print("DATATATAATA ${listProducts.toString()}");
     for (int i = 0; i < listProducts.length; i++) {
       setState(() {
-        rentProducts = rentProducts + int.parse(listProducts[i]['price']);
+        rentProducts = rentProducts + int.parse(listProducts[i]['total_price']);
       });
       totalDeposit = int.parse(listProducts[i]['deposit'].toString().substring(
             7,
           ));
+      totalPayout = rentProducts + 10 + totalDeposit;
+
       print("DATATATAATA ${totalDeposit}");
 
       //totalDeposit = listProducts[i]['deposit'];
@@ -341,12 +359,18 @@ class PlaceOrderScreenState extends State<PlaceOrderScreen> {
     placeOrderBloc.placeOrder(placeOrderList: placeOrderList, address: addressCtrl.text);
     placeOrderBloc.placeOrderStream.listen((event) {
       if (event['status_code'] == '200') {
-        Utils.showMessage(message: event["Message"]);
+        Utils.showMessage(message: event["Message"], type: true);
+        Database.deleteCart();
         Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) {
-          return Dashboard();
+          return ThankYouPage(total: totalPayout, flatNo: flatBuildingCtrl.text, direction: directionCtrl.text, landmark: landmarkCtrl.text, address: addressCtrl.text, date: listProducts[0]['toDate']);
         }));
       } else {
         Utils.showMessage(message: event["Message"], type: false);
+        if (event['status_code'] == '205') {
+          Navigator.push(context, MaterialPageRoute(builder: (context) {
+            return KycPage();
+          }));
+        }
       }
     });
   }
@@ -404,5 +428,12 @@ class PlaceOrderScreenState extends State<PlaceOrderScreen> {
     } catch (e) {
       print(e.toString());
     }
+  }
+
+  void initControllers() {
+    addressCtrl = TextEditingController();
+    directionCtrl = TextEditingController();
+    flatBuildingCtrl = TextEditingController();
+    landmarkCtrl = TextEditingController();
   }
 }

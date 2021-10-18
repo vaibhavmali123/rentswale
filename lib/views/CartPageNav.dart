@@ -31,6 +31,7 @@ class CartPageNavState extends State<CartPageNav> {
     )
   ];
   TextEditingController couponCtrl;
+  int indexTemp;
 
   @override
   void initState() {
@@ -122,16 +123,7 @@ class CartPageNavState extends State<CartPageNav> {
                         child: SizedBox(
                           height: 40,
                           width: MediaQuery.of(context).size.width / 3.4,
-                          child:
-                              /*GooglePayButton(
-                            paymentConfigurationAsset: 'payment_configuration.json',
-                            paymentItems: _paymentItems,
-                            style: GooglePayButtonStyle.black,
-                            type: GooglePayButtonType.pay,
-                            onPaymentResult: onGooglePayResult,
-                          ),*/
-
-                              RaisedButton(
+                          child: RaisedButton(
                             color: color.successBtnColor,
                             shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8.0)),
                             onPressed: () {
@@ -212,7 +204,12 @@ class CartPageNavState extends State<CartPageNav> {
                                                       SizedBox(
                                                         height: 10,
                                                       ),
-                                                      Text('Price:  ₹ ' + listCart[index]['price'], style: GoogleFonts.poppins(fontSize: 13, fontWeight: FontWeight.w500, color: Colors.black87.withOpacity(0.5)))
+                                                      Row(
+                                                        children: [
+                                                          Text('Price:  ₹ ' + listCart[index]['price'], style: GoogleFonts.poppins(fontSize: 13, fontWeight: FontWeight.w500, color: Colors.black87.withOpacity(0.5))),
+                                                        ],
+                                                      ),
+                                                      Text('Total:  ₹ ' + listCart[index]['total_price'].toString(), style: GoogleFonts.poppins(fontSize: 13, fontWeight: FontWeight.w500, color: Colors.black87.withOpacity(0.5)))
                                                     ],
                                                   ),
                                                 ),
@@ -263,7 +260,7 @@ class CartPageNavState extends State<CartPageNav> {
                                             shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(6)),
                                             color: color.successBtnColor,
                                             onPressed: () {
-                                              _showEditDialog(context: context, index: listCart[index]['quantity']);
+                                              _showEditDialog(context: context, qty: listCart[index]['quantity'], index: index);
                                               /*ProductList productList = ProductList();
                                               productList.itemName = listCart[index]['productName'];
                                               productList.price = listCart[index]['price'];
@@ -310,26 +307,12 @@ class CartPageNavState extends State<CartPageNav> {
     );
   }
 
-  void getCartDetails() async {
-    var response = await Database.getCart();
-    if (response != null) {
-      setState(() {
-        listCart = json.decode(response);
-      });
-      for (int i = 0; i < listCart.length; i++) {
-        total = total + int.parse(listCart[i]['price']);
-      }
-      setState(() {});
-    }
-    print("CARTDATA ${response}");
-  }
-
   void onGooglePayResult(paymentResult) {
     // Send the resulting Google Pay token to your server or PSP
   }
 
-  void _showEditDialog({BuildContext context, int index}) {
-    int quantity = index;
+  void _showEditDialog({BuildContext context, int qty, int index}) {
+    int quantity = qty;
     showModalBottomSheet(
         context: context,
         builder: (BuildContext bc) {
@@ -367,6 +350,7 @@ class CartPageNavState extends State<CartPageNav> {
                               if (quantity != 1) {
                                 setState(() {
                                   quantity = quantity - 1;
+                                  indexTemp = index;
                                 });
                               }
                             },
@@ -391,6 +375,7 @@ class CartPageNavState extends State<CartPageNav> {
                             onPressed: () {
                               setState(() {
                                 quantity = quantity + 1;
+                                indexTemp = index;
                               });
                             },
                             icon: Icon(Icons.add)),
@@ -402,8 +387,15 @@ class CartPageNavState extends State<CartPageNav> {
                         Padding(
                           padding: EdgeInsets.symmetric(horizontal: 20),
                           child: ElevatedButton(
-                              onPressed: () {
+                              onPressed: () async {
                                 Navigator.pop(context);
+                                listCart[indexTemp]['quantity'] = quantity;
+                                listCart[indexTemp]['total_price'] = (int.parse(listCart[indexTemp]['price']) * quantity).toString();
+
+                                Database.addTocart(json.encode(listCart));
+                                // total = 0;
+                                getCartDetails();
+                                setState(() {});
                               },
                               style: ElevatedButton.styleFrom(primary: Colors.green, textStyle: TextStyle(fontSize: 12, color: Colors.white)),
                               child: Text('Update')),
@@ -416,6 +408,21 @@ class CartPageNavState extends State<CartPageNav> {
             );
           });
         });
+  }
+
+  void getCartDetails() async {
+    var response = await Database.getCart();
+    if (response != null) {
+      setState(() {
+        listCart = json.decode(response);
+      });
+      total = 0;
+      for (int i = 0; i < listCart.length; i++) {
+        total = total + int.parse(listCart[i]['total_price']);
+      }
+      setState(() {});
+    }
+    print("CARTDATA ${response}");
   }
 
   void applyCode(AsyncSnapshot snapshot) {

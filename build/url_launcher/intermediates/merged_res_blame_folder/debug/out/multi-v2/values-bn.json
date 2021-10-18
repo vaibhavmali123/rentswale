@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "E:\\projects\\rentswale\\build\\url_launcher\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-bn\\values-bn.xml",
+            "outputFile": "E:\\projects\\git backup\\rentswale\\rentswale\\build\\url_launcher\\intermediates\\res\\merged\\debug\\values-bn\\values-bn.xml",
             "map": [
                 {
                     "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-2\\files-2.1\\dedc580d70cb626931f368f031b4e88d\\core-1.1.0\\res\\values-bn\\values-bn.xml",
@@ -16,7 +16,7 @@
             ]
         },
         {
-            "outputFile": "E:\\projects\\rentswale\\build\\url_launcher\\intermediates\\res\\merged\\debug\\values-bn\\values-bn.xml",
+            "outputFile": "E:\\projects\\git backup\\rentswale\\rentswale\\build\\url_launcher\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-bn\\values-bn.xml",
             "map": [
                 {
                     "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-2\\files-2.1\\dedc580d70cb626931f368f031b4e88d\\core-1.1.0\\res\\values-bn\\values-bn.xml",

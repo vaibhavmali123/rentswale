@@ -1,6 +1,7 @@
 class constants {
   static String cartKey = 'cartKey';
   static String userName = 'userName';
+  static String name = "name";
   static String userId = 'userId';
   static String address = 'address';
   static String email = 'email';

@@ -9,6 +9,7 @@ import 'package:rentswale/main.dart';
 import 'package:rentswale/models/AllProductsModel.dart';
 import 'package:rentswale/utils/Colors.dart';
 import 'package:rentswale/utils/constants.dart';
+import 'package:rentswale/utils/utils.dart';
 import 'package:rentswale/views/AccountNav.dart';
 import 'package:rentswale/views/CartPageNav.dart';
 import 'package:rentswale/views/HomePageNav.dart';
@@ -54,16 +55,16 @@ class DashboardState extends State<Dashboard> {
     CartPageNav(),
     AccountNav(),
   ];
-  String address;
   List<AllProductList> listProducts = [];
-
+  String address;
   int _currentIndex;
   @override
   void initState() {
     // TODO: implement initState
+    checkServiceLocation();
+
     super.initState();
 
-    print("FLAGG ${flag}");
     if (flag != constants.flagCart) {
       setState(() {
         _currentIndex = 0;
@@ -74,23 +75,21 @@ class DashboardState extends State<Dashboard> {
       });
     }
 
-    Database.initDatabase();
+    setState(() {});
 
+    Database.initDatabase();
+    print("aaaaddess ${address}");
+    setState(() {});
     Timer(Duration(seconds: 2), () {
+      address = Database.getAddres();
       getCartDetails();
-      setState(() {
-        Database.getAddres().then((value) {
-          setState(() {
-            address = value;
-          });
-        });
-      });
     });
+    setState(() {});
   }
 
   @override
   Widget build(BuildContext context) {
-    allProductDetailsBloc.getAllProducts();
+    allProductDetailsBloc.getAllProducts(address: address);
     cartCount = listCart.length;
 
     allProductDetailsBloc.productDescriptionStream.listen((event) {
@@ -116,7 +115,7 @@ class DashboardState extends State<Dashboard> {
                   },
                   icon: Icon(Icons.add_location)),
               Text(
-                address == null ? 'Pune' : address,
+                Database.getAddres() == null ? 'Pune' : Database.getAddres(),
                 style: GoogleFonts.poppins(fontSize: 17, fontWeight: FontWeight.w700),
               )
             ],
@@ -132,9 +131,15 @@ class DashboardState extends State<Dashboard> {
                   size: 22,
                 ),
                 onPressed: () {
-                  print("EVENT LLLLL ${listProducts.length}");
-
-                  showSearch(context: context, delegate: SearchProductsDelegate(listProducts: listProducts));
+                  if (listProducts != null) {
+                    print("EVENT LLLLL ${listProducts.length}");
+                    showSearch(context: context, delegate: SearchProductsDelegate(listProducts: listProducts));
+                  } else {
+                    setState(() {
+                      isServiceAvailable = false;
+                    });
+                    Utils.showMessage(message: "Soon we will service in this area", type: false);
+                  }
                   //showSearch(context: context, delegate: SearchOrders(list));
                 }),
           )
@@ -236,5 +241,13 @@ class DashboardState extends State<Dashboard> {
   void dispose() {
     // TODO: implement dispose
     super.dispose();
+  }
+
+  void checkServiceLocation() {
+    if (listProducts == null) {
+      setState(() {
+        isServiceAvailable = false;
+      });
+    }
   }
 }

@@ -7,8 +7,8 @@ class AllProductsBloc {
 
   Stream<List<AllProductList>> get productDescriptionStream => allProductsFetcher.stream;
 
-  getAllProducts() async {
-    List<AllProductList> listProductDescription = await Repository.allProducts();
+  getAllProducts({String address}) async {
+    List<AllProductList> listProductDescription = await Repository.allProducts(address: address);
 
     allProductsFetcher.sink.add(listProductDescription);
   }
