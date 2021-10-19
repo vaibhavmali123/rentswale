@@ -1,4 +1,0 @@
-#Mon Oct 18 15:44:55 IST 2021
-base.0=E\:\\projects\\git backup\\rentswale\\rentswale\\build\\app\\intermediates\\dex\\debug\\mergeDexDebug\\classes.dex
-path.0=classes.dex
-renamed.0=classes.dex
