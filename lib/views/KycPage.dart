@@ -9,7 +9,9 @@ import 'package:image_picker/image_picker.dart';
 import 'package:path/path.dart' as path;
 import 'package:path_provider/path_provider.dart';
 import 'package:rentswale/bloc/KycBloc.dart';
+import 'package:rentswale/bloc/KycCheckBloc.dart';
 import 'package:rentswale/database/Database.dart';
+import 'package:rentswale/models/kyc_check_model.dart';
 import 'package:rentswale/networking/ApiProvider.dart';
 import 'package:rentswale/utils/Colors.dart';
 import 'package:rentswale/utils/constants.dart';
@@ -34,6 +36,7 @@ class KycPageState extends State<KycPage> {
 
   @override
   Widget build(BuildContext context) {
+    kycCheckBloc.checkKyc();
     return Scaffold(
       appBar: AppBar(
         title: Text(
@@ -45,71 +48,163 @@ class KycPageState extends State<KycPage> {
       body: Stack(
         children: [
           SingleChildScrollView(
-            child: Container(
-              height: MediaQuery.of(context).size.height,
-              width: MediaQuery.of(context).size.width,
-              color: Colors.grey.shade100,
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  SizedBox(
-                    height: 40,
-                  ),
-                  Padding(
-                    padding: EdgeInsets.only(left: 20, top: 20),
-                    child: Text(
-                      'Please complete your KYC first',
-                      style: GoogleFonts.poppins(fontSize: 18, fontWeight: FontWeight.w700, color: Colors.black87.withOpacity(0.6)),
-                    ),
-                  ),
-                  Expanded(flex: 1, child: Container()),
-                  Expanded(
-                      flex: 22,
+            child: StreamBuilder(
+              stream: kycCheckBloc.kycCheckStream,
+              builder: (context, AsyncSnapshot<KycCheckModel> snapshot) {
+                if (snapshot.hasData) {
+                  if (snapshot.data.statusCode == "200") {
+                    return Container(
+                      height: MediaQuery.of(context).size.height,
                       child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          getAdhaarCardField(),
-                          getCurrentAddressField(),
-                          SizedBox(
-                            height: 10,
-                          ),
-                          getLisceneField(),
-                          SizedBox(
-                            width: MediaQuery.of(context).size.width / 2,
-                            height: 50,
-                            child: ElevatedButton(
-                                onPressed: () {
-                                  print("DETAILS aadharCard ${aadharCard}");
-                                  print("DETAILS license ${license}");
-                                  print("DETAILS addressProof ${addressProof}");
-
-                                  Database.initDatabase();
-
-                                  if (aadharController.text.length > 0 && licenseController.text.length > 0 && aadharCard != null && addressProof != null && license != null) {
-                                    if (Database.getUserName() != null) {
-                                      kycBloc.updateKyc(aadharCard: aadharCard, aadharNo: aadharController.text, license: license, addressProof: addressProof, licenseNo: licenseController.text);
-
-                                      kycBloc.kycStream.listen((event) {
-                                        print("DDDDDDDD ${event}");
-                                        if (event.statusCode == "200") {
-                                          Utils.showMessage(message: "KYC Updated successfully", type: true);
-                                        } else {
-                                          Utils.showMessage(message: "Update Failed", type: false);
-                                        }
-                                      });
-                                    } else {
-                                      Utils.showMessage(message: "Please login first", type: false);
-                                    }
-                                  } else {
-                                    Utils.showMessage(message: "All fields are compulsory", type: false);
-                                  }
-                                },
-                                style: ElevatedButton.styleFrom(primary: color.primaryColor, textStyle: TextStyle(fontSize: 17, fontWeight: FontWeight.w800, color: Colors.white)),
-                                child: Text('Submit')),
+                          Center(
+                            child: Text("KYC Complete"),
                           )
                         ],
-                      ))
-                ],
-              ),
+                      ),
+                    );
+                  } else {
+                    return Container(
+                      height: MediaQuery.of(context).size.height,
+                      width: MediaQuery.of(context).size.width,
+                      color: Colors.grey.shade100,
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          SizedBox(
+                            height: 40,
+                          ),
+                          Padding(
+                            padding: EdgeInsets.only(left: 20, top: 20),
+                            child: Text(
+                              'Please complete your KYC first',
+                              style: GoogleFonts.poppins(fontSize: 18, fontWeight: FontWeight.w700, color: Colors.black87.withOpacity(0.6)),
+                            ),
+                          ),
+                          Expanded(flex: 1, child: Container()),
+                          Expanded(
+                              flex: 22,
+                              child: Column(
+                                children: [
+                                  getAdhaarCardField(),
+                                  getCurrentAddressField(),
+                                  SizedBox(
+                                    height: 10,
+                                  ),
+                                  getLisceneField(),
+                                  SizedBox(
+                                    width: MediaQuery.of(context).size.width / 2,
+                                    height: 50,
+                                    child: ElevatedButton(
+                                        onPressed: () {
+                                          print("DETAILS aadharCard ${aadharCard}");
+                                          print("DETAILS license ${license}");
+                                          print("DETAILS addressProof ${addressProof}");
+
+                                          Database.initDatabase();
+
+                                          if (aadharController.text.length > 0 && licenseController.text.length > 0 && aadharCard != null && addressProof != null && license != null) {
+                                            if (Database.getUserName() != null) {
+                                              kycBloc.updateKyc(aadharCard: aadharCard, aadharNo: aadharController.text, license: license, addressProof: addressProof, licenseNo: licenseController.text);
+
+                                              kycBloc.kycStream.listen((event) {
+                                                print("DDDDDDDD ${event}");
+                                                if (event.statusCode == "200") {
+                                                  Utils.showMessage(message: "KYC Updated successfully", type: true);
+                                                  Navigator.pop(context);
+                                                } else {
+                                                  Utils.showMessage(message: "Update Failed", type: false);
+                                                }
+                                              });
+                                            } else {
+                                              Utils.showMessage(message: "Please login first", type: false);
+                                            }
+                                          } else {
+                                            Utils.showMessage(message: "All fields are compulsory", type: false);
+                                          }
+                                        },
+                                        style: ElevatedButton.styleFrom(primary: color.primaryColor, textStyle: TextStyle(fontSize: 17, fontWeight: FontWeight.w800, color: Colors.white)),
+                                        child: Text('Submit')),
+                                  )
+                                ],
+                              ))
+                        ],
+                      ),
+                    );
+                  }
+                } else if (snapshot.connectionState == ConnectionState.waiting) {
+                  return Utils.loader;
+                } else {
+                  return Container(
+                    height: MediaQuery.of(context).size.height,
+                    width: MediaQuery.of(context).size.width,
+                    color: Colors.grey.shade100,
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        SizedBox(
+                          height: 40,
+                        ),
+                        Padding(
+                          padding: EdgeInsets.only(left: 20, top: 20),
+                          child: Text(
+                            'Please complete your KYC first',
+                            style: GoogleFonts.poppins(fontSize: 18, fontWeight: FontWeight.w700, color: Colors.black87.withOpacity(0.6)),
+                          ),
+                        ),
+                        Expanded(flex: 1, child: Container()),
+                        Expanded(
+                            flex: 22,
+                            child: Column(
+                              children: [
+                                getAdhaarCardField(),
+                                getCurrentAddressField(),
+                                SizedBox(
+                                  height: 10,
+                                ),
+                                getLisceneField(),
+                                SizedBox(
+                                  width: MediaQuery.of(context).size.width / 2,
+                                  height: 50,
+                                  child: ElevatedButton(
+                                      onPressed: () {
+                                        print("DETAILS aadharCard ${aadharCard}");
+                                        print("DETAILS license ${license}");
+                                        print("DETAILS addressProof ${addressProof}");
+
+                                        Database.initDatabase();
+
+                                        if (aadharController.text.length > 0 && licenseController.text.length > 0 && aadharCard != null && addressProof != null && license != null) {
+                                          if (Database.getUserName() != null) {
+                                            kycBloc.updateKyc(aadharCard: aadharCard, aadharNo: aadharController.text, license: license, addressProof: addressProof, licenseNo: licenseController.text);
+
+                                            kycBloc.kycStream.listen((event) {
+                                              print("DDDDDDDD ${event}");
+                                              if (event.statusCode == "200") {
+                                                Utils.showMessage(message: "KYC Updated successfully", type: true);
+                                                Navigator.pop(context);
+                                              } else {
+                                                Utils.showMessage(message: "Update Failed", type: false);
+                                              }
+                                            });
+                                          } else {
+                                            Utils.showMessage(message: "Please login first", type: false);
+                                          }
+                                        } else {
+                                          Utils.showMessage(message: "All fields are compulsory", type: false);
+                                        }
+                                      },
+                                      style: ElevatedButton.styleFrom(primary: color.primaryColor, textStyle: TextStyle(fontSize: 17, fontWeight: FontWeight.w800, color: Colors.white)),
+                                      child: Text('Submit')),
+                                )
+                              ],
+                            ))
+                      ],
+                    ),
+                  );
+                }
+              },
             ),
           ),
           showLoader == true ? Utils.loader : Container()
@@ -120,42 +215,45 @@ class KycPageState extends State<KycPage> {
 
   void _showCategoryPicker(String addressProof, BuildContext context) async {
     print("dsddsd");
-    showModalBottomSheet(
-        context: context,
-        builder: (BuildContext bc) {
-          return SafeArea(
-              child: Container(
-            child: Wrap(
-              children: [
-                ListTile(
-                  leading: Icon(Icons.iso),
-                  title: Text("Electricity bill"),
-                  onTap: () async {
-                    Navigator.pop(context);
 
-                    showPicker(type: constants.addressProof, context: context);
-                  },
-                ),
-                ListTile(
-                  leading: Icon(Icons.iso),
-                  title: Text("Company or College ID"),
-                  onTap: () {
-                    Navigator.pop(context);
-                    showPicker(type: constants.addressProof, context: context);
-                  },
-                ),
-                ListTile(
-                  leading: Icon(Icons.iso),
-                  title: Text("Rent agreement"),
-                  onTap: () {
-                    Navigator.pop(context);
-                    showPicker(type: constants.addressProof, context: context);
-                  },
-                )
-              ],
-            ),
-          ));
-        });
+    if (showLoader != true) {
+      showModalBottomSheet(
+          context: context,
+          builder: (BuildContext bc) {
+            return SafeArea(
+                child: Container(
+              child: Wrap(
+                children: [
+                  ListTile(
+                    leading: Icon(Icons.iso),
+                    title: Text("Electricity bill"),
+                    onTap: () async {
+                      Navigator.pop(context);
+
+                      showPicker(type: constants.addressProof, context: context);
+                    },
+                  ),
+                  ListTile(
+                    leading: Icon(Icons.iso),
+                    title: Text("Company or College ID"),
+                    onTap: () {
+                      Navigator.pop(context);
+                      showPicker(type: constants.addressProof, context: context);
+                    },
+                  ),
+                  ListTile(
+                    leading: Icon(Icons.iso),
+                    title: Text("Rent agreement"),
+                    onTap: () {
+                      Navigator.pop(context);
+                      showPicker(type: constants.addressProof, context: context);
+                    },
+                  )
+                ],
+              ),
+            ));
+          });
+    }
   }
 
   getAdhaarCardField() {
@@ -262,98 +360,100 @@ class KycPageState extends State<KycPage> {
 
   //this function is for show file picker
   showPicker({String type, BuildContext context}) async {
-    await showModalBottomSheet(
-        context: context,
-        builder: (BuildContext context) {
-          return SafeArea(
-              child: Container(
-            child: Wrap(
-              children: [
-                ListTile(
-                  leading: Icon(Icons.file_copy_sharp),
-                  title: Text("Pick from files"),
-                  onTap: () async {
-                    FilePickerResult fileResult = await FilePicker.platform.pickFiles();
-                    if (fileResult != null) {
-                      File file = File(fileResult.files.single.path);
+    if (showLoader != true) {
+      await showModalBottomSheet(
+          context: context,
+          builder: (BuildContext context) {
+            return SafeArea(
+                child: Container(
+              child: Wrap(
+                children: [
+                  ListTile(
+                    leading: Icon(Icons.file_copy_sharp),
+                    title: Text("Pick from files"),
+                    onTap: () async {
+                      FilePickerResult fileResult = await FilePicker.platform.pickFiles();
+                      if (fileResult != null) {
+                        File file = File(fileResult.files.single.path);
+                        String dir = (await getApplicationDocumentsDirectory()).path;
+                        String imageName = 'rentswale';
+                        String extension = File(file.path).path.split('.').last;
+
+                        String newPath = path.join(dir, imageName + '.' + extension);
+
+                        File f = await File(fileResult.files.single.path);
+                        File ff = await File(f.path).copy(newPath);
+
+                        String fileName = ff.path.split('/').last;
+
+                        switch (type) {
+                          case 'adhaarCard':
+                            setState(() {
+                              aadharCardPath = fileResult.files.single.path.toString();
+                            });
+                            break;
+                          case 'drivingLiscene':
+                            setState(() {
+                              licensePath = fileResult.files.single.path.toString();
+                            });
+                            break;
+                          case 'AddressProof':
+                            setState(() {
+                              addressProofPath = fileResult.files.single.path.toString();
+                            });
+                            break;
+                        }
+
+                        uploadFile(fileName: fileName, directory: dir, type: type);
+
+                        Navigator.pop(context);
+                      } else {}
+                    },
+                  ),
+                  ListTile(
+                    leading: Icon(Icons.camera_alt),
+                    title: Text("Capture from camera"),
+                    onTap: () async {
+                      final picker = ImagePicker();
+                      final pickedFile = await picker.pickImage(source: ImageSource.camera);
+
+                      File file = File(pickedFile.path);
                       String dir = (await getApplicationDocumentsDirectory()).path;
                       String imageName = 'rentswale';
                       String extension = File(file.path).path.split('.').last;
 
                       String newPath = path.join(dir, imageName + '.' + extension);
 
-                      File f = await File(fileResult.files.single.path);
+                      File f = await File(pickedFile.path);
                       File ff = await File(f.path).copy(newPath);
 
                       String fileName = ff.path.split('/').last;
-
                       switch (type) {
                         case 'adhaarCard':
                           setState(() {
-                            aadharCardPath = fileResult.files.single.path.toString();
+                            aadharCardPath = pickedFile.path.toString();
                           });
                           break;
                         case 'drivingLiscene':
                           setState(() {
-                            licensePath = fileResult.files.single.path.toString();
+                            licensePath = pickedFile.path.toString();
                           });
                           break;
                         case 'AddressProof':
                           setState(() {
-                            addressProofPath = fileResult.files.single.path.toString();
+                            addressProofPath = pickedFile.path.toString();
                           });
                           break;
                       }
 
                       uploadFile(fileName: fileName, directory: dir, type: type);
-
-                      Navigator.pop(context);
-                    } else {}
-                  },
-                ),
-                ListTile(
-                  leading: Icon(Icons.camera_alt),
-                  title: Text("Capture from camera"),
-                  onTap: () async {
-                    final picker = ImagePicker();
-                    final pickedFile = await picker.pickImage(source: ImageSource.camera);
-
-                    File file = File(pickedFile.path);
-                    String dir = (await getApplicationDocumentsDirectory()).path;
-                    String imageName = 'rentswale';
-                    String extension = File(file.path).path.split('.').last;
-
-                    String newPath = path.join(dir, imageName + '.' + extension);
-
-                    File f = await File(pickedFile.path);
-                    File ff = await File(f.path).copy(newPath);
-
-                    String fileName = ff.path.split('/').last;
-                    switch (type) {
-                      case 'adhaarCard':
-                        setState(() {
-                          aadharCardPath = pickedFile.path.toString();
-                        });
-                        break;
-                      case 'drivingLiscene':
-                        setState(() {
-                          licensePath = pickedFile.path.toString();
-                        });
-                        break;
-                      case 'AddressProof':
-                        setState(() {
-                          addressProofPath = pickedFile.path.toString();
-                        });
-                        break;
-                    }
-
-                    uploadFile(fileName: fileName, directory: dir, type: type);
-                  },
-                )
-              ],
-            ),
-          ));
-        });
+                    },
+                  )
+                ],
+              ),
+            ));
+          });
+    }
   }
 
   void initControllers() {

@@ -2,8 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:razorpay_flutter/razorpay_flutter.dart';
 import 'package:rentswale/bloc/PlaceOrderBloc.dart';
+import 'package:rentswale/bloc/ProfileBloc.dart';
 import 'package:rentswale/database/Database.dart';
 import 'package:rentswale/models/PlaceOrderModel.dart';
+import 'package:rentswale/models/profile_model.dart';
 import 'package:rentswale/utils/Colors.dart';
 import 'package:rentswale/utils/utils.dart';
 import 'package:rentswale/views/KycPage.dart';
@@ -30,13 +32,15 @@ class PlaceOrderScreenState extends State<PlaceOrderScreen> {
   TextEditingController addressCtrl, flatBuildingCtrl, landmarkCtrl, directionCtrl;
   var paymentMethod = 'offline';
   var _razorpay = Razorpay();
-
+  bool isloaded = false;
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
     getTotalPayment();
     initControllers();
+    profileBloc.getProfile();
+
     print("DDDDD ${couponAmount}");
     initPaymentCallbacks();
   }
@@ -46,7 +50,7 @@ class PlaceOrderScreenState extends State<PlaceOrderScreen> {
     return Scaffold(
       bottomNavigationBar: GestureDetector(
         onTap: () {
-          if (addressCtrl.text.length > 0) {
+          if (addressCtrl.text.length > 0 && landmarkCtrl.text.length > 0 && flatBuildingCtrl.text.length > 0 && directionCtrl.text.length > 0) {
             Database.initDatabase();
             Database.isKycCompleted();
             if (paymentMethod == "offline") {
@@ -56,7 +60,7 @@ class PlaceOrderScreenState extends State<PlaceOrderScreen> {
             }
             print("KYC ${Database.isKycCompleted()}");
           } else {
-            Utils.showMessage(message: 'Please enter address', type: false);
+            Utils.showMessage(message: 'Please enter address details', type: false);
           }
         },
         child: Container(
@@ -78,240 +82,261 @@ class PlaceOrderScreenState extends State<PlaceOrderScreen> {
         ),
         backgroundColor: color.primaryColor,
       ),
-      body: Container(
-        color: Colors.grey.shade100,
-        width: MediaQuery.of(context).size.width,
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            Container(
-              width: MediaQuery.of(context).size.width / 1.1,
-              margin: EdgeInsets.only(bottom: 10, top: 20),
-              padding: EdgeInsets.all(18),
-              decoration: BoxDecoration(borderRadius: BorderRadius.circular(8.0), color: Colors.white),
-              child: Column(
-                children: [
-                  Row(
-                    children: [
-                      Icon(
-                        Icons.location_on,
-                        color: color.primaryColor,
+      body: SingleChildScrollView(
+        child: Container(
+          color: Colors.grey.shade100,
+          height: MediaQuery.of(context).size.height,
+          width: MediaQuery.of(context).size.width,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              StreamBuilder(
+                stream: profileBloc.profileStream,
+                builder: (context, AsyncSnapshot<ProfileModel> snapshot) {
+                  if (snapshot.hasData) {
+                    if (isloaded == false) {
+                      addressCtrl.text = snapshot.data.profileList[0].address;
+                      flatBuildingCtrl.text = snapshot.data.profileList[0].flatDetails;
+                      landmarkCtrl.text = snapshot.data.profileList[0].landmark;
+                      directionCtrl.text = snapshot.data.profileList[0].direction;
+                    }
+                    isloaded = true;
+                    return Container(
+                      width: MediaQuery.of(context).size.width / 1.1,
+                      margin: EdgeInsets.only(bottom: 10, top: 20),
+                      padding: EdgeInsets.all(18),
+                      decoration: BoxDecoration(borderRadius: BorderRadius.circular(8.0), color: Colors.white),
+                      child: Column(
+                        children: [
+                          Row(
+                            children: [
+                              Icon(
+                                Icons.location_on,
+                                color: color.primaryColor,
+                              ),
+                              Text(
+                                'Address',
+                                style: GoogleFonts.poppins(fontSize: 13, fontWeight: FontWeight.w800, color: Colors.black87.withOpacity(0.6)),
+                              )
+                            ],
+                          ),
+                          SizedBox(
+                            height: 8,
+                          ),
+                          SizedBox(
+                            width: MediaQuery.of(context).size.width / 1,
+                            height: 50,
+                            child: TextFormField(
+                              controller: addressCtrl,
+                              decoration: InputDecoration(hintText: "Delivery address", border: OutlineInputBorder(borderSide: BorderSide(width: 1, color: Colors.black54))),
+                            ),
+                          ),
+                          SizedBox(
+                            height: 12,
+                          ),
+                          SizedBox(
+                            width: MediaQuery.of(context).size.width / 1,
+                            height: 50,
+                            child: TextFormField(
+                              controller: flatBuildingCtrl,
+                              decoration: InputDecoration(hintText: "Flat, building floor no", border: OutlineInputBorder(borderSide: BorderSide(width: 1, color: Colors.black54))),
+                            ),
+                          ),
+                          SizedBox(
+                            height: 12,
+                          ),
+                          SizedBox(
+                            width: MediaQuery.of(context).size.width / 1,
+                            height: 50,
+                            child: TextFormField(
+                              controller: landmarkCtrl,
+                              decoration: InputDecoration(hintText: "Landmark, area", border: OutlineInputBorder(borderSide: BorderSide(width: 1, color: Colors.black54))),
+                            ),
+                          ),
+                          SizedBox(
+                            height: 12,
+                          ),
+                          SizedBox(
+                            width: MediaQuery.of(context).size.width / 1,
+                            height: 50,
+                            child: TextFormField(
+                              controller: directionCtrl,
+                              decoration: InputDecoration(hintText: "Direction to reach", border: OutlineInputBorder(borderSide: BorderSide(width: 1, color: Colors.black54))),
+                            ),
+                          ),
+                        ],
                       ),
-                      Text(
-                        'Address',
-                        style: GoogleFonts.poppins(fontSize: 13, fontWeight: FontWeight.w800, color: Colors.black87.withOpacity(0.6)),
-                      )
-                    ],
-                  ),
+                    );
+                  } else if (snapshot.connectionState == ConnectionState.waiting) {
+                    return Utils.loader;
+                  } else {
+                    return Utils.noData;
+                  }
+                },
+              ),
+              SizedBox(
+                height: 20,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
                   SizedBox(
-                    height: 8,
+                    width: 20,
                   ),
-                  SizedBox(
-                    width: MediaQuery.of(context).size.width / 1,
-                    height: 50,
-                    child: TextFormField(
-                      controller: flatBuildingCtrl,
-                      decoration: InputDecoration(hintText: "Flat, building flour no", border: OutlineInputBorder(borderSide: BorderSide(width: 1, color: Colors.black54))),
-                    ),
-                  ),
-                  SizedBox(
-                    height: 12,
-                  ),
-                  SizedBox(
-                    width: MediaQuery.of(context).size.width / 1,
-                    height: 50,
-                    child: TextFormField(
-                      controller: landmarkCtrl,
-                      decoration: InputDecoration(hintText: "Landmark, area", border: OutlineInputBorder(borderSide: BorderSide(width: 1, color: Colors.black54))),
-                    ),
-                  ),
-                  SizedBox(
-                    height: 12,
-                  ),
-                  SizedBox(
-                    width: MediaQuery.of(context).size.width / 1,
-                    height: 50,
-                    child: TextFormField(
-                      controller: directionCtrl,
-                      decoration: InputDecoration(hintText: "Direction to reach", border: OutlineInputBorder(borderSide: BorderSide(width: 1, color: Colors.black54))),
-                    ),
-                  ),
-                  SizedBox(
-                    height: 12,
-                  ),
-                  SizedBox(
-                    width: MediaQuery.of(context).size.width / 1,
-                    height: 50,
-                    child: TextFormField(
-                      controller: addressCtrl,
-                      decoration: InputDecoration(hintText: "Delivery address", border: OutlineInputBorder(borderSide: BorderSide(width: 1, color: Colors.black54))),
-                    ),
+                  Text(
+                    'Order summary',
+                    style: GoogleFonts.poppins(fontSize: 13, fontWeight: FontWeight.w800, color: Colors.black87.withOpacity(0.6)),
                   )
                 ],
               ),
-            ),
-            SizedBox(
-              height: 20,
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                SizedBox(
-                  width: 20,
-                ),
-                Text(
-                  'Order summary',
-                  style: GoogleFonts.poppins(fontSize: 13, fontWeight: FontWeight.w800, color: Colors.black87.withOpacity(0.6)),
-                )
-              ],
-            ),
-            SizedBox(
-              height: 8,
-            ),
-            Container(
-              padding: EdgeInsets.all(10),
-              decoration: BoxDecoration(color: Colors.white, borderRadius: BorderRadius.circular(8.0)),
-              width: MediaQuery.of(context).size.width / 1.1,
-              child: IntrinsicHeight(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      'Payment details',
-                      style: GoogleFonts.poppins(fontSize: 13, fontWeight: FontWeight.w800, color: Colors.black87.withOpacity(0.6)),
-                    ),
-                    getLine(),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Text(
-                          'Products rent',
-                          style: GoogleFonts.poppins(fontSize: 13, fontWeight: FontWeight.w700, color: Colors.black87.withOpacity(0.6)),
-                        ),
-                        Text(
-                          '₹ ' + rentProducts.toString(),
-                          style: GoogleFonts.poppins(fontSize: 13, fontWeight: FontWeight.w700, color: Colors.black87.withOpacity(0.6)),
-                        ),
-                      ],
-                    ),
-                    SizedBox(
-                      height: 5,
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Text(
-                          'Deposit',
-                          style: GoogleFonts.poppins(fontSize: 13, fontWeight: FontWeight.w700, color: Colors.black87.withOpacity(0.6)),
-                        ),
-                        Text(
-                          totalDeposit.toString(),
-                          style: GoogleFonts.poppins(fontSize: 13, fontWeight: FontWeight.w700, color: Colors.black87.withOpacity(0.6)),
-                        ),
-                      ],
-                    ),
-                    SizedBox(
-                      height: 5,
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Text(
-                          'Delivery charges',
-                          style: GoogleFonts.poppins(fontSize: 13, fontWeight: FontWeight.w700, color: Colors.black87.withOpacity(0.6)),
-                        ),
-                        Text(
-                          '₹ 10',
-                          style: GoogleFonts.poppins(fontSize: 13, fontWeight: FontWeight.w700, color: Colors.black87.withOpacity(0.6)),
-                        ),
-                      ],
-                    ),
-                    couponAmount != null
-                        ? Padding(
-                            padding: EdgeInsets.only(top: 6),
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Text(
-                                  'Coupon Applied',
-                                  style: GoogleFonts.poppins(fontSize: 13, fontWeight: FontWeight.w700, color: Colors.black87.withOpacity(0.6)),
-                                ),
-                                Text(
-                                  '₹ ' + couponAmount,
-                                  style: GoogleFonts.poppins(fontSize: 13, fontWeight: FontWeight.w700, color: Colors.black87.withOpacity(0.6)),
-                                ),
-                              ],
-                            ),
-                          )
-                        : Container(),
-                    getLine(),
-                    SizedBox(
-                      height: 4,
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Text(
-                          'Total amount to pay',
-                          style: GoogleFonts.poppins(fontSize: 13, fontWeight: FontWeight.w800, color: Colors.black87.withOpacity(0.6)),
-                        ),
-                        couponAmount != null
-                            ? Text(
-                                '₹ ' + (rentProducts + 10 + totalDeposit - int.parse(couponAmount)).toString(),
-                                style: GoogleFonts.poppins(fontSize: 13, fontWeight: FontWeight.w800, color: Colors.black87.withOpacity(0.6)),
-                              )
-                            : Text(
-                                '₹ ' + (rentProducts + 10 + totalDeposit).toString(),
-                                style: GoogleFonts.poppins(fontSize: 13, fontWeight: FontWeight.w800, color: Colors.black87.withOpacity(0.6)),
-                              ),
-                      ],
-                    ),
-                    SizedBox(
-                      height: 5,
-                    ),
-                    Container(
-                        width: MediaQuery.of(context).size.width,
-                        height: 50,
-                        child: Row(
-                          children: [
-                            Flexible(
-                                child: Row(
-                              children: [
-                                Radio(
-                                    value: 'offline',
-                                    groupValue: paymentMethod,
-                                    onChanged: (value) {
-                                      setState(() {
-                                        paymentMethod = value;
-                                      });
-                                    }),
-                                Text('Offline Payment')
-                              ],
-                            )),
-                            SizedBox(
-                              width: 8,
-                            ),
-                            Flexible(
-                                child: Row(
-                              children: [
-                                Radio(
-                                    value: 'online',
-                                    groupValue: paymentMethod,
-                                    onChanged: (value) {
-                                      setState(() {
-                                        paymentMethod = value;
-                                      });
-                                    }),
-                                Text('Online Payment')
-                              ],
-                            ))
-                          ],
-                        )),
-                  ],
-                ),
+              SizedBox(
+                height: 8,
               ),
-            )
-          ],
+              Container(
+                padding: EdgeInsets.all(10),
+                decoration: BoxDecoration(color: Colors.white, borderRadius: BorderRadius.circular(8.0)),
+                width: MediaQuery.of(context).size.width / 1.1,
+                child: IntrinsicHeight(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        'Payment details',
+                        style: GoogleFonts.poppins(fontSize: 13, fontWeight: FontWeight.w800, color: Colors.black87.withOpacity(0.6)),
+                      ),
+                      getLine(),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text(
+                            'Products rent',
+                            style: GoogleFonts.poppins(fontSize: 13, fontWeight: FontWeight.w700, color: Colors.black87.withOpacity(0.6)),
+                          ),
+                          Text(
+                            '₹ ' + rentProducts.toString(),
+                            style: GoogleFonts.poppins(fontSize: 13, fontWeight: FontWeight.w700, color: Colors.black87.withOpacity(0.6)),
+                          ),
+                        ],
+                      ),
+                      SizedBox(
+                        height: 5,
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text(
+                            'Deposit',
+                            style: GoogleFonts.poppins(fontSize: 13, fontWeight: FontWeight.w700, color: Colors.black87.withOpacity(0.6)),
+                          ),
+                          Text(
+                            totalDeposit.toString(),
+                            style: GoogleFonts.poppins(fontSize: 13, fontWeight: FontWeight.w700, color: Colors.black87.withOpacity(0.6)),
+                          ),
+                        ],
+                      ),
+                      SizedBox(
+                        height: 5,
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text(
+                            'Delivery charges',
+                            style: GoogleFonts.poppins(fontSize: 13, fontWeight: FontWeight.w700, color: Colors.black87.withOpacity(0.6)),
+                          ),
+                          Text(
+                            '₹ 10',
+                            style: GoogleFonts.poppins(fontSize: 13, fontWeight: FontWeight.w700, color: Colors.black87.withOpacity(0.6)),
+                          ),
+                        ],
+                      ),
+                      couponAmount != null
+                          ? Padding(
+                              padding: EdgeInsets.only(top: 6),
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Text(
+                                    'Coupon Applied',
+                                    style: GoogleFonts.poppins(fontSize: 13, fontWeight: FontWeight.w700, color: Colors.black87.withOpacity(0.6)),
+                                  ),
+                                  Text(
+                                    '₹ ' + couponAmount,
+                                    style: GoogleFonts.poppins(fontSize: 13, fontWeight: FontWeight.w700, color: Colors.black87.withOpacity(0.6)),
+                                  ),
+                                ],
+                              ),
+                            )
+                          : Container(),
+                      getLine(),
+                      SizedBox(
+                        height: 4,
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text(
+                            'Total amount to pay',
+                            style: GoogleFonts.poppins(fontSize: 13, fontWeight: FontWeight.w800, color: Colors.black87.withOpacity(0.6)),
+                          ),
+                          couponAmount != null
+                              ? Text(
+                                  '₹ ' + (rentProducts + 10 + totalDeposit - int.parse(couponAmount)).toString(),
+                                  style: GoogleFonts.poppins(fontSize: 13, fontWeight: FontWeight.w800, color: Colors.black87.withOpacity(0.6)),
+                                )
+                              : Text(
+                                  '₹ ' + (rentProducts + 10 + totalDeposit).toString(),
+                                  style: GoogleFonts.poppins(fontSize: 13, fontWeight: FontWeight.w800, color: Colors.black87.withOpacity(0.6)),
+                                ),
+                        ],
+                      ),
+                      SizedBox(
+                        height: 5,
+                      ),
+                      Container(
+                          width: MediaQuery.of(context).size.width,
+                          height: 50,
+                          child: Row(
+                            children: [
+                              Flexible(
+                                  child: Row(
+                                children: [
+                                  Radio(
+                                      value: 'offline',
+                                      groupValue: paymentMethod,
+                                      onChanged: (value) {
+                                        setState(() {
+                                          paymentMethod = value;
+                                        });
+                                      }),
+                                  Text('Offline Payment')
+                                ],
+                              )),
+                              SizedBox(
+                                width: 8,
+                              ),
+                              Flexible(
+                                  child: Row(
+                                children: [
+                                  Radio(
+                                      value: 'online',
+                                      groupValue: paymentMethod,
+                                      onChanged: (value) {
+                                        setState(() {
+                                          paymentMethod = value;
+                                        });
+                                      }),
+                                  Text('Online Payment')
+                                ],
+                              ))
+                            ],
+                          )),
+                    ],
+                  ),
+                ),
+              )
+            ],
+          ),
         ),
       ),
     );
@@ -356,16 +381,16 @@ class PlaceOrderScreenState extends State<PlaceOrderScreen> {
       placeOrderModel.subTotal = int.parse(listProducts[i]['price']).toString();
       placeOrderList.add(placeOrderModel);
     }
-    placeOrderBloc.placeOrder(placeOrderList: placeOrderList, address: addressCtrl.text);
+    placeOrderBloc.placeOrder(placeOrderList: placeOrderList, address: addressCtrl.text, flatNo: flatBuildingCtrl.text, landmark: landmarkCtrl.text, direction: directionCtrl.text);
     placeOrderBloc.placeOrderStream.listen((event) {
       if (event['status_code'] == '200') {
-        Utils.showMessage(message: event["Message"], type: true);
+        //  Utils.showMessage(message: event["Message"], type: true);
         Database.deleteCart();
         Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) {
           return ThankYouPage(total: totalPayout, flatNo: flatBuildingCtrl.text, direction: directionCtrl.text, landmark: landmarkCtrl.text, address: addressCtrl.text, date: listProducts[0]['toDate']);
         }));
       } else {
-        Utils.showMessage(message: event["Message"], type: false);
+        //  Utils.showMessage(message: event["Message"], type: false);
         if (event['status_code'] == '205') {
           Navigator.push(context, MaterialPageRoute(builder: (context) {
             return KycPage();
@@ -435,5 +460,11 @@ class PlaceOrderScreenState extends State<PlaceOrderScreen> {
     directionCtrl = TextEditingController();
     flatBuildingCtrl = TextEditingController();
     landmarkCtrl = TextEditingController();
+  }
+
+  @override
+  void dispose() {
+    // TODO: implement dispose
+    super.dispose();
   }
 }

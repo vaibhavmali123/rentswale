@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:flutter_uploader/flutter_uploader.dart';
 import 'package:intl/intl.dart';
 import 'package:rentswale/database/Database.dart';
 import 'package:rentswale/models/AllProductsModel.dart';
@@ -12,6 +13,11 @@ import 'package:rentswale/models/OrderHistoryModel.dart';
 import 'package:rentswale/models/ProductDetailsModel.dart';
 import 'package:rentswale/models/ProductsListModel.dart';
 import 'package:rentswale/models/SubcategoriesModel.dart';
+import 'package:rentswale/models/forgot_password_model.dart';
+import 'package:rentswale/models/kyc_check_model.dart';
+import 'package:rentswale/models/profile_model.dart';
+import 'package:rentswale/models/profile_update_model_response.dart';
+import 'package:rentswale/models/verify_otp_model.dart';
 import 'package:rentswale/networking/ApiHandler.dart';
 import 'package:rentswale/networking/ApiProvider.dart';
 import 'package:rentswale/networking/EndApi.dart';
@@ -98,13 +104,13 @@ class Repository {
     });
   }
 
-  static Future<dynamic> placeOrder({List<dynamic> placeOrderList, String address}) {
+  static Future<dynamic> placeOrder({List<dynamic> placeOrderList, String address, String flatNo, String landmark, String direction}) {
     Database.initDatabase();
     print("ADDDDR ${Database.getEmail()} ${Database.getUserName()} ${Database.getUserId()}");
     DateTime dateTime = DateTime.now();
     DateFormat dateFormat = DateFormat("yyyy-MM-dd");
     String date = dateFormat.format(dateTime);
-    var request = {'order_arr': json.encode(placeOrderList), 'user_id': Database.getUserId(), 'user_name': Database.getUserName(), 'email': Database.getEmail(), 'phone': Database.getUserName(), 'address': address, 'date': date};
+    var request = {'order_arr': json.encode(placeOrderList), 'user_id': Database.getUserId(), 'user_name': Database.getUserName(), 'email': Database.getEmail(), 'phone': Database.getUserName(), 'address': address, 'date': date, 'flat_details': flatNo, 'landmark': landmark, 'direction': direction};
     print("REQUEST ${request.toString()}");
     return ApiHandler.postApi(baseUrl: ApiProvider.baseUrl, endApi: EndApi.placeOrder, request: request).then((value) {
       print("RES From REPO ${value.toString()}");
@@ -160,6 +166,89 @@ class Repository {
       print("RESPONSE ${value}");
 
       return offersModel;
+    });
+  }
+
+  static Future<ProfileUpdateModelResponse> updateProfile({String name, String email, String address, String profileImage, String floorNo, String landmark, String direction}) {
+    var request = {"username": Database.getUserName(), "name": name, "email_address": email, "address": address, 'flat_details': floorNo, 'landmark': landmark, 'direction': direction};
+    if (profileImage != null) {
+      request["profile_image"] = profileImage;
+    }
+
+    print("REQUEST ${request}");
+    return ApiHandler.postApi(baseUrl: ApiProvider.baseUrl, endApi: EndApi.updateProfile, request: request).then((value) {
+      ProfileUpdateModelResponse profileUpdateModelResponse = ProfileUpdateModelResponse.fromJson(value);
+
+      return profileUpdateModelResponse;
+    });
+  }
+
+  static Future<Map<String, dynamic>> uploadFile({fileName, directory}) async {
+    Map<String, dynamic> map;
+    final uploader = FlutterUploader();
+
+    final taskId = await uploader.enqueue(url: ApiProvider.baseUrlUpload, files: [FileItem(filename: fileName, savedDir: directory)], method: UploadMethod.POST, headers: {"apikey": "api_123456", "userkey": "userkey_123456"}, showNotification: true);
+    final subscription = uploader.progress.listen((progress) {
+      print("Progress ${progress}");
+    });
+
+    final subscription1 = uploader.result.listen((result) {
+      print("Progress result ${result.response}");
+
+      // return result.response;
+    }, onError: (ex, stacktrace) {});
+    subscription1.onData((data) async {
+      map = await json.decode(data.response);
+
+      return map;
+    });
+  }
+
+  static Future<ProfileModel> getProfile() async {
+    Database.initDatabase();
+
+    var request = {"username": Database.getUserName()};
+
+    print("REQUEST ${request}");
+    return ApiHandler.postApi(baseUrl: ApiProvider.baseUrl, endApi: EndApi.profile, request: request).then((value) {
+      ProfileModel profileModel = ProfileModel.fromJson(value);
+      print("DDDDDDDDDDDDDD ${profileModel.statusCode}");
+
+      return profileModel;
+    });
+  }
+
+  static Future<ForgotPasswordModel> forgotPassword({String userName}) async {
+    var request = {"username": userName};
+    return ApiHandler.postApi(baseUrl: ApiProvider.baseUrl, endApi: EndApi.forgotPassword, request: request).then((value) {
+      ForgotPasswordModel forgotPasswordModel = ForgotPasswordModel.fromJson(value);
+
+      return forgotPasswordModel;
+    });
+  }
+
+  static Future<VerifyOtpModel> verifyOtp({String otp, String userName}) async {
+    Database.initDatabase();
+    var request = {"username": userName, "otp": otp};
+    print("REQUEST ${request}");
+
+    return ApiHandler.postApi(baseUrl: ApiProvider.baseUrl, endApi: EndApi.verifyOtp, request: request).then((value) {
+      VerifyOtpModel verifyOtpModel = VerifyOtpModel.fromJson(value);
+
+      return verifyOtpModel;
+    });
+  }
+
+  static Future<KycCheckModel> checkKyc() async {
+    Database.initDatabase();
+
+    var request = {"username": Database.getUserName()};
+    print("FFFFFFFF ${request}");
+    return ApiHandler.postApi(baseUrl: ApiProvider.baseUrl, endApi: EndApi.kycCheck, request: request).then((value) {
+      KycCheckModel kycCheckModel = KycCheckModel.fromJson(value);
+      print("FFFFFFFF ${kycCheckModel.runtimeType}");
+
+      return kycCheckModel;
     });
   }
 }

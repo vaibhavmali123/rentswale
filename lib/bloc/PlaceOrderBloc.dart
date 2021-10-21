@@ -6,8 +6,8 @@ class PlaceOrderBloc {
 
   Stream<dynamic> get placeOrderStream => placeOrderSubject.stream;
 
-  placeOrder({List<dynamic> placeOrderList, String address}) async {
-    dynamic result = await Repository.placeOrder(placeOrderList: placeOrderList, address: address);
+  placeOrder({List<dynamic> placeOrderList, String address,String flatNo, String landmark, String direction}) async {
+    dynamic result = await Repository.placeOrder(placeOrderList: placeOrderList, address: address,flatNo:flatNo,landmark:landmark,direction:direction);
 
     placeOrderSubject.sink.add(result);
   }

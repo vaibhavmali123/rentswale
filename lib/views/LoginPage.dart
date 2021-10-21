@@ -7,6 +7,7 @@ import 'package:rentswale/utils/Colors.dart';
 import 'package:rentswale/utils/utils.dart';
 import 'package:rentswale/views/CreateAccountScreen.dart';
 import 'package:rentswale/views/Dashboard.dart';
+import 'package:rentswale/views/ForgotPasswordPage.dart';
 import 'package:rentswale/views/PlaceOrderScreen.dart';
 
 class LoginPage extends StatefulWidget {
@@ -117,7 +118,7 @@ class LoginPageState extends State<LoginPage> {
             ),
             GestureDetector(
               onTap: () {
-                Navigator.push(context, MaterialPageRoute(builder: (context) {
+                Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) {
                   return CreateAccountScreen();
                 }));
               },
@@ -129,6 +130,20 @@ class LoginPageState extends State<LoginPage> {
                       color: Colors.black87.withOpacity(0.9),
                     ),
                     children: <TextSpan>[TextSpan(text: 'Signup', style: GoogleFonts.poppins(fontSize: 12, fontWeight: FontWeight.w700, color: Colors.blueAccent))]),
+              ),
+            ),
+            SizedBox(
+              height: 13,
+            ),
+            GestureDetector(
+              onTap: () {
+                Navigator.push(context, MaterialPageRoute(builder: (context) {
+                  return ForgotPasswordPage();
+                }));
+              },
+              child: Text(
+                "Forgot Password",
+                style: GoogleFonts.poppins(fontSize: 13, color: Colors.black, fontWeight: FontWeight.w500),
               ),
             )
           ],

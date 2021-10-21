@@ -67,9 +67,13 @@ class AccountNavState extends State<AccountNav> {
                             children: [
                               IconButton(
                                 onPressed: () {
-                                  Navigator.push(context, MaterialPageRoute(builder: (context) {
-                                    return UpdateProfileScreen();
-                                  }));
+                                  if (Database.getUserName() != null) {
+                                    Navigator.push(context, MaterialPageRoute(builder: (context) {
+                                      return UpdateProfileScreen();
+                                    }));
+                                  } else {
+                                    Utils.showMessage(message: 'Please login first', type: false);
+                                  }
                                 },
                                 icon: Icon(Icons.edit),
                                 color: color.primaryColor,
@@ -82,9 +86,13 @@ class AccountNavState extends State<AccountNav> {
                           ),
                         ),
                         onTap: () {
-                          Navigator.push(context, MaterialPageRoute(builder: (context) {
-                            return UpdateProfileScreen();
-                          }));
+                          if (Database.getUserName() != null) {
+                            Navigator.push(context, MaterialPageRoute(builder: (context) {
+                              return UpdateProfileScreen();
+                            }));
+                          } else {
+                            Utils.showMessage(message: 'Please login first', type: false);
+                          }
                         },
                       ),
                       GestureDetector(

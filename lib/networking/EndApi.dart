@@ -7,9 +7,13 @@ class EndApi {
   static String login = 'login.php';
   static String couponCode = 'coupon.php';
   static String placeOrder = 'order_place.php';
-
   static String allProducts = 'allProducts.php';
   static String kyc = 'kyc.php';
   static String orderHistory = 'order_history.php';
   static String offers = 'offer.php';
+  static String updateProfile = 'update_profile.php';
+  static String profile = "profile.php";
+  static String forgotPassword = "forgot_send_otp.php";
+  static String verifyOtp = "forgot_verify_otp.php";
+  static String kycCheck = 'kyc_check.php';
 }

@@ -14,4 +14,5 @@ class constants {
   static String agreement = "agreement";
   static String flagCart = 'flagCart';
   static String kycCompleted = 'completed';
+  static String emailRegExp = r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+";
 }

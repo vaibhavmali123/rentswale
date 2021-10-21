@@ -449,7 +449,7 @@ class ProductDetailsState extends State<ProductDetails> {
             Padding(
               padding: EdgeInsets.only(left: 14, right: 14, top: 12),
               child: Text(
-                snapshot.data[0].termSpecification,
+                snapshot.data[0].termSpecification != null ? snapshot.data[0].termSpecification : "",
                 style: GoogleFonts.poppins(fontSize: 14, color: Colors.black87.withOpacity(0.8), fontWeight: FontWeight.w500),
               ),
             )
